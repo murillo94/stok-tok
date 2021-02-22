@@ -12,28 +12,22 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
-      - name: Install dependencies
-        run: yarn
-      - name: Run tests and collect coverage
-        run: yarn test
-      - name: Upload coverage to Codecov (demo)
-        uses: ./
-        with:
-          files: ./coverage/coverage-final.json
-          file: ./coverage/coverage-final.json
-          flags: demo
-          name: codecov-demo
-      - name: Upload coverage to Codecov (script)
-        uses: ./
-        with:
-          files: ./coverage/script/coverage-final.json
-          flags: script
-          name: codecov-script
-      - name: Publish to Expo
-        uses: expo/expo-github-action@v5
+      - uses: expo/expo-github-action@v5
         with:
           expo-version: 4.x
           expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
           expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
           expo-cache: true
+      - name: Install dependencies
+        run: yarn
+      - name: Run tests and collect coverage
+        run: yarn test
+      - name: Upload coverage to Codecov (demo)
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./coverage/coverage-final.json
+          file: ./coverage/coverage-final.json
+          flags: demo
+          name: codecov-demo
+      - name: Publish to Expo
         run: expo publish
