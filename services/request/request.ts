@@ -7,10 +7,10 @@ import { HTTPMethods } from '../../typings/request';
 const DEFAULT_MESSAGE_ERROR =
   'Ops! Ocorreu um problema inesperado, tente novamente mais tarde!';
 
-export default async function request(endpoint: string, method: HTTPMethods) {
+export default async function request(endpoint: string, method?: HTTPMethods) {
   try {
     const response = await fetch(`${Config.API_HOST}${endpoint}`, {
-      method,
+      method: method ?? HTTPMethods.GET,
     });
     const data = await response.json();
 

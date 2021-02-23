@@ -5,12 +5,12 @@ const endpoints = {
     sofa: {
       sofas: {
         request: {
-          url: 'sofas/sofas',
+          url: 'moveis/sofas/sofas',
         },
       },
       chaise: {
         request: {
-          url: 'sofas/chaise-longue',
+          url: 'moveis/sofas/chaise-longue',
         },
       },
     },
@@ -29,24 +29,24 @@ const endpoints = {
     closet: {
       closets: {
         request: {
-          url: 'armarios/guarda-roupas',
+          url: 'moveis/armarios/guarda-roupas',
         },
       },
       boxes: {
         request: {
-          url: 'armarios/baus',
+          url: 'moveis/armarios/baus',
         },
       },
     },
     chairs: {
       office: {
         request: {
-          url: 'bancos-e-cadeiras/cadeiras-de-escritorio',
+          url: 'moveis/bancos-e-cadeiras/cadeiras-de-escritorio',
         },
       },
       benches: {
         request: {
-          url: 'bancos-e-cadeiras/bancos',
+          url: 'moveis/bancos-e-cadeiras/bancos',
         },
       },
     },

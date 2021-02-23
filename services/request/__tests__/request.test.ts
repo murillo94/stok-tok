@@ -9,6 +9,17 @@ import { HTTPMethods } from '../../../typings/request';
 const { Response } = jest.requireActual('node-fetch');
 
 describe('request', () => {
+  it('will return default method', async () => {
+    const response = await request(endpoints.GET.sofa.chaise.request.url);
+
+    expect(fetch).toHaveBeenCalledWith(
+      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/sofas/chaise-longue',
+      {
+        method: HTTPMethods.GET,
+      }
+    );
+  });
+
   it('will return the correct request data', async () => {
     // @ts-ignore
     fetch.mockReturnValue(
@@ -21,7 +32,7 @@ describe('request', () => {
     );
 
     expect(fetch).toHaveBeenCalledWith(
-      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/sofas/chaise-longue',
+      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/sofas/chaise-longue',
       {
         method: HTTPMethods.GET,
       }
@@ -39,7 +50,7 @@ describe('request', () => {
     );
 
     expect(fetch).toHaveBeenCalledWith(
-      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/sofas/chaise-longue',
+      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/sofas/chaise-longue',
       {
         method: HTTPMethods.GET,
       }
