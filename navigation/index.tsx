@@ -16,7 +16,6 @@ import NotFoundScreen from '../screens/NotFoundScreen';
 import CartScreen from '../screens/CartScreen';
 
 import MainNavigator from './MainNavigator';
-import LinkingConfiguration from './LinkingConfiguration';
 
 import useColorScheme from '../hooks/useColorScheme';
 
@@ -32,7 +31,6 @@ export default function NavigationWrapper({
 }) {
   return (
     <NavigationContainer
-      linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
     >
       <RootNavigator />
