@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import EditScreenInfo from '../../components/EditScreenInfo';
+import { Text, View } from '../../components/Themed';
 
-export default function SearchScreen() {
+export default function CartScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Todo</Text>
@@ -13,7 +13,7 @@ export default function SearchScreen() {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <EditScreenInfo path="/screens/SearchScreen.tsx" />
+      <EditScreenInfo path="/screens/CartScreen.tsx" />
     </View>
   );
 }

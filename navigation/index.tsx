@@ -12,15 +12,15 @@ import {
 
 import IconButton from '../components/IconButton';
 
-import NotFoundScreen from '../screens/NotFoundScreen';
-import CartScreen from '../screens/CartScreen';
+import NotFoundScreen from '../screens/not-found';
+import CartScreen from '../screens/cart';
 
-import MainNavigator from './MainNavigator';
+import MainNavigator from './main-navigator';
 
-import useColorScheme from '../hooks/useColorScheme';
+import useColorScheme from '../hooks/use-color-scheme';
 
-import Colors from '../constants/Colors';
-import Header from '../constants/Header';
+import Colors from '../constants/colors';
+import Header from '../constants/header';
 
 import { Navigation } from '../typings/navigation';
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
+import useCachedResources from './hooks/use-cached-resources';
+import useColorScheme from './hooks/use-color-scheme';
 
 import Navigation from './navigation';
 

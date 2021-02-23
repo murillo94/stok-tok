@@ -6,14 +6,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Icon from '../components/Icon';
 import IconButton from '../components/IconButton';
 
-import HomeScreen from '../screens/HomeScreen';
-import SearchScreen from '../screens/SearchScreen';
-import FavoritesScreen from '../screens/FavoritesScreen';
+import HomeScreen from '../screens/home';
+import SearchScreen from '../screens/search';
+import FavoritesScreen from '../screens/favorites';
 
-import useColorScheme from '../hooks/useColorScheme';
+import useColorScheme from '../hooks/use-color-scheme';
 
-import Colors from '../constants/Colors';
-import Header from '../constants/Header';
+import Colors from '../constants/colors';
+import Header from '../constants/header';
 
 import { Navigation } from '../typings/navigation';
 
