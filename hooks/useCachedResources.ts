@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
-import Font from 'expo-font';
-import SplashScreen from 'expo-splash-screen';
+import { loadAsync } from 'expo-font';
+import { preventAutoHideAsync, hideAsync } from 'expo-splash-screen';
 import { useState, useEffect } from 'react';
 
 export default function useCachedResources() {
@@ -10,10 +10,10 @@ export default function useCachedResources() {
   useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
-        SplashScreen.preventAutoHideAsync();
+        preventAutoHideAsync();
 
         // Load fonts
-        await Font.loadAsync({
+        await loadAsync({
           ...Ionicons.font,
           'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
         });
@@ -22,7 +22,7 @@ export default function useCachedResources() {
         console.warn(e);
       } finally {
         setLoadingComplete(true);
-        SplashScreen.hideAsync();
+        hideAsync();
       }
     }
 
