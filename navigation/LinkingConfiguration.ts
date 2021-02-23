@@ -1,24 +1,31 @@
-import * as Linking from 'expo-linking';
+import { makeUrl } from 'expo-linking';
+
+import { Navigation } from '../typings/navigation';
 
 export default {
-  prefixes: [Linking.makeUrl('/')],
+  prefixes: [makeUrl('/')],
   config: {
     screens: {
-      Root: {
+      [Navigation.RootRoutes.ROOT]: {
         screens: {
-          TabOne: {
+          [Navigation.HomeRoutes.ROOT]: {
             screens: {
-              TabOneScreen: 'one',
+              HomeScreen: 'home',
             },
           },
-          TabTwo: {
+          [Navigation.SearchRoutes.ROOT]: {
             screens: {
-              TabTwoScreen: 'two',
+              SearchScreen: 'search',
+            },
+          },
+          [Navigation.FavoritesRoutes.ROOT]: {
+            screens: {
+              FavoritesScreen: 'favorite',
             },
           },
         },
       },
-      NotFound: '*',
+      [Navigation.NotFoundRoutes.ROOT]: '*',
     },
   },
 };
