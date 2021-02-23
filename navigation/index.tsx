@@ -5,16 +5,26 @@ import {
   DefaultTheme,
   DarkTheme,
 } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/stack';
+
+import IconButton from '../components/IconButton';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
-import BottomTabNavigator from './BottomTabNavigator';
+import CartScreen from '../screens/CartScreen';
+
+import MainNavigator from './MainNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
+
+import useColorScheme from '../hooks/useColorScheme';
+
+import Colors from '../constants/Colors';
+import Header from '../constants/Header';
 
 import { Navigation } from '../typings/navigation';
 
-// If you are not familiar with React Navigation, we recommend going through the
-// "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
 export default function NavigationWrapper({
   colorScheme,
 }: {
@@ -30,22 +40,65 @@ export default function NavigationWrapper({
   );
 }
 
-// A root stack navigator is often used for displaying modals on top of all other content
-// Read more here: https://reactnavigation.org/docs/modal
-const Stack = createStackNavigator<Navigation.RootRouterStackParamList>();
+const ModalStack = createStackNavigator<Navigation.ModalRouterStackParamList>();
+
+function ModalNavigator() {
+  const colorScheme = useColorScheme();
+
+  return (
+    <ModalStack.Navigator
+      screenOptions={({ navigation }) => ({
+        headerBackImage: () => null,
+        headerBackTitleVisible: false,
+        headerRight: () => (
+          <IconButton
+            name="x"
+            color={Colors[colorScheme].tint}
+            onPress={() => navigation.goBack()}
+          />
+        ),
+        ...Header.style,
+      })}
+    >
+      <ModalStack.Screen
+        name={Navigation.CartRoutes.ROOT}
+        component={CartScreen}
+        options={{ title: Navigation.Modals.CART }}
+      />
+      <RootStack.Screen
+        name={Navigation.NotFoundRoutes.ROOT}
+        component={NotFoundScreen}
+        options={{ title: Navigation.Modals.NOT_FOUND }}
+      />
+    </ModalStack.Navigator>
+  );
+}
+
+type MainNavigatorStack = Navigation.RootRouterStackParamList &
+  Navigation.ModalRouterStackParamList;
+
+const RootStack = createStackNavigator<MainNavigatorStack>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen
+    <RootStack.Navigator
+      screenOptions={{
+        headerShown: false,
+        gestureEnabled: true,
+        cardOverlayEnabled: true,
+        ...TransitionPresets.ModalPresentationIOS,
+      }}
+      mode="modal"
+    >
+      <RootStack.Screen
         name={Navigation.RootRoutes.ROOT}
-        component={BottomTabNavigator}
+        component={MainNavigator}
+        options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name={Navigation.NotFoundRoutes.ROOT}
-        component={NotFoundScreen}
-        options={{ title: 'Oops!' }}
+      <RootStack.Screen
+        name={Navigation.CartRoutes.ROOT}
+        component={ModalNavigator}
       />
-    </Stack.Navigator>
+    </RootStack.Navigator>
   );
 }

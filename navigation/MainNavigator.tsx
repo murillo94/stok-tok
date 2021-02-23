@@ -1,7 +1,10 @@
 import React from 'react';
-import { Feather } from '@expo/vector-icons';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import Icon from '../components/Icon';
+import IconButton from '../components/IconButton';
 
 import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
@@ -10,12 +13,13 @@ import FavoritesScreen from '../screens/FavoritesScreen';
 import useColorScheme from '../hooks/useColorScheme';
 
 import Colors from '../constants/Colors';
+import Header from '../constants/Header';
 
 import { Navigation } from '../typings/navigation';
 
 const BottomTab = createBottomTabNavigator<Navigation.MainRouterStackParamList>();
 
-export default function BottomTabNavigator() {
+export default function MainNavigator() {
   const colorScheme = useColorScheme();
 
   return (
@@ -28,7 +32,7 @@ export default function BottomTabNavigator() {
         component={HomeNavigator}
         options={{
           tabBarLabel: Navigation.Tabs.HOME,
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color }) => <Icon name="home" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -36,7 +40,7 @@ export default function BottomTabNavigator() {
         component={SearchNavigator}
         options={{
           tabBarLabel: Navigation.Tabs.SEARCH,
-          tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
+          tabBarIcon: ({ color }) => <Icon name="search" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -44,24 +48,26 @@ export default function BottomTabNavigator() {
         component={FavoritesNavigator}
         options={{
           tabBarLabel: Navigation.Tabs.FAVORITES,
-          tabBarIcon: ({ color }) => <TabBarIcon name="heart" color={color} />,
+          tabBarIcon: ({ color }) => <Icon name="heart" color={color} />,
         }}
       />
     </BottomTab.Navigator>
   );
 }
 
-// You can explore the built-in icon families and icons on the web at:
-// https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof Feather>['name'];
-  color: string;
-}) {
-  return <Feather size={24} style={{ marginBottom: -3 }} {...props} />;
+// @ts-ignore
+function Cart({ onPress }) {
+  const colorScheme = useColorScheme();
+
+  return (
+    <IconButton
+      name="shopping-bag"
+      color={Colors[colorScheme].tint}
+      onPress={onPress}
+    />
+  );
 }
 
-// Each tab has its own navigation stack, you can read more about this pattern here:
-// https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const HomeStack = createStackNavigator<Navigation.MainRouterStackParamList>();
 
 function HomeNavigator() {
@@ -70,7 +76,15 @@ function HomeNavigator() {
       <HomeStack.Screen
         name={Navigation.HomeRoutes.ROOT}
         component={HomeScreen}
-        options={{ headerTitle: Navigation.Tabs.HOME }}
+        options={({ navigation }) => ({
+          headerTitle: Navigation.Tabs.HOME,
+          headerRight: () => (
+            <Cart
+              onPress={() => navigation.navigate(Navigation.CartRoutes.ROOT)}
+            />
+          ),
+          ...Header.style,
+        })}
       />
     </HomeStack.Navigator>
   );
@@ -84,7 +98,15 @@ function SearchNavigator() {
       <SearchStack.Screen
         name={Navigation.SearchRoutes.ROOT}
         component={SearchScreen}
-        options={{ headerTitle: Navigation.Tabs.SEARCH }}
+        options={({ navigation }) => ({
+          headerTitle: Navigation.Tabs.SEARCH,
+          headerRight: () => (
+            <Cart
+              onPress={() => navigation.navigate(Navigation.CartRoutes.ROOT)}
+            />
+          ),
+          ...Header.style,
+        })}
       />
     </SearchStack.Navigator>
   );
@@ -98,7 +120,15 @@ function FavoritesNavigator() {
       <FavoritesStack.Screen
         name={Navigation.FavoritesRoutes.ROOT}
         component={FavoritesScreen}
-        options={{ headerTitle: Navigation.Tabs.FAVORITES }}
+        options={({ navigation }) => ({
+          headerTitle: Navigation.Tabs.FAVORITES,
+          headerRight: () => (
+            <Cart
+              onPress={() => navigation.navigate(Navigation.CartRoutes.ROOT)}
+            />
+          ),
+          ...Header.style,
+        })}
       />
     </FavoritesStack.Navigator>
   );

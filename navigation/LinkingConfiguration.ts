@@ -23,6 +23,11 @@ export default {
               FavoritesScreen: 'favorite',
             },
           },
+          [Navigation.CartRoutes.ROOT]: {
+            screens: {
+              CartScreen: 'cart',
+            },
+          },
         },
       },
       [Navigation.NotFoundRoutes.ROOT]: '*',

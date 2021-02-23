@@ -19,15 +19,28 @@ export namespace Navigation {
     ROOT = 'FAVORITES',
   }
 
+  export enum CartRoutes {
+    ROOT = 'CART',
+  }
+
   export enum Tabs {
     HOME = 'Início',
     SEARCH = 'Busca',
     FAVORITES = 'Favoritos',
   }
 
+  export enum Modals {
+    CART = 'Sacola de compras',
+    NOT_FOUND = 'Oops!',
+  }
+
+  export type ModalRouterStackParamList = {
+    [CartRoutes.ROOT]: undefined;
+    [NotFoundRoutes.ROOT]: undefined;
+  };
+
   export type RootRouterStackParamList = {
     [RootRoutes.ROOT]: undefined;
-    [NotFoundRoutes.ROOT]: undefined;
   };
 
   export type MainRouterStackParamList = {
