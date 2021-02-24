@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { View, FlatList, Text } from 'react-native';
 import ConfettiCannon from 'react-native-confetti-cannon';
 
-import { ProductCartItem, Button } from '../../components';
+import { ProductCartItem, Button } from 'components';
 
 import useCartScreen from './cart.hook';
 

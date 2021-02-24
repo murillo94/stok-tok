@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import { IconButton } from '../../components';
-
-import colors from '../../constants/colors';
+import { IconButton } from 'components';
 
 import styles from './styles';
 

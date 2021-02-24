@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { useCachedResources, CartProvider } from './hooks';
+import { useCachedResources, CartProvider } from 'hooks';
 
 import Navigation from './navigation';
 

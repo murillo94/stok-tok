@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform, ActivityIndicator } from 'react-native';
-import colors from '../../constants/colors';
+
+import colors from 'constants/colors';
 
 export function Loading({ size = 50, color = colors.light.tint }) {
   return (

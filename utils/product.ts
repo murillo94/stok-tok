@@ -1,8 +1,8 @@
 import currency from 'currency.js';
 
-import { capitalize } from './string';
+import { capitalize } from 'utils';
 
-import { Product } from '../typings/product';
+import { Product } from 'typings/product';
 
 export function formatCurrency(value: number): string {
   return currency(value, {

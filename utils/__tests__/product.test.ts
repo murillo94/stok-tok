@@ -1,4 +1,4 @@
-import { formatProducts } from '../index';
+import { formatProducts } from 'utils';
 
 const WRONG_LIST = [
   {

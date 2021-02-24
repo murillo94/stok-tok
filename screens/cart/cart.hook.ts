@@ -1,10 +1,10 @@
 import { MutableRefObject, useState } from 'react';
 
-import { useCart } from '../../hooks';
+import { useCart } from 'hooks';
 
-import { formatCurrency } from '../../utils';
+import { formatCurrency } from 'utils';
 
-import { Product } from '../../typings/product';
+import { Product } from 'typings/product';
 
 type ConfettiRef = MutableRefObject<{
   start: () => void;

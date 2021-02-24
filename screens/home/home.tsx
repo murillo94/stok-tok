@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 
-import { ProductListItem, ProductListHeader, Loading } from '../../components';
+import { ProductListItem, ProductListHeader, Loading } from 'components';
 
 import useHomeScreen from './home.hook';
 

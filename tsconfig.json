@@ -1,12 +1,29 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
     "noEmit": true,
     "skipLibCheck": true,
+    "strictBindCallApply": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
     "resolveJsonModule": true,
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@services/*": ["./services/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@utils/*": ["./utils/*"],
+      "@screens/*": ["./screens/*"],
+      "@components/*": ["./components/*"],
+      "@assets/*": ["./assets/*"],
+      "@typings/*": ["./typings/*"],
+      "@config/*": ["./config/*"]
+    }
   }
 }

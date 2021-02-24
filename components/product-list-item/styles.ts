@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { getResponsiveFontSize } from '../../utils';
+import { getResponsiveFontSize } from 'utils';
 
 const styles = StyleSheet.create({
   containerSingleItem: {

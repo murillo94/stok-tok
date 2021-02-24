@@ -1,14 +1,15 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import { Image, Button } from '../index';
+import { Image, Button } from 'components';
 
-import { getResponsiveWidth } from '../../utils';
+import { getResponsiveWidth } from 'utils';
 
-import { Product } from '../../typings/product';
+import colors from 'constants/colors';
+
+import { Product } from 'typings/product';
 
 import styles from './styles';
-import colors from '../../constants/colors';
 
 type ProductProps = Product & {
   isInCart: boolean;

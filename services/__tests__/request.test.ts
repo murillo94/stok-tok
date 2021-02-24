@@ -2,9 +2,9 @@ jest.mock('node-fetch');
 
 import fetch from 'node-fetch';
 
-import { request, endpoints } from '../index';
+import { request, endpoints } from 'services';
 
-import { HTTPMethods } from '../../typings/request';
+import { HTTPMethods } from 'typings/request';
 
 const { Response } = jest.requireActual('node-fetch');
 

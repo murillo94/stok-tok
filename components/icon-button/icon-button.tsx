@@ -1,11 +1,11 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
-import { Icon } from '../icon';
+import { Icon } from 'components';
 
-import colors from '../../constants/colors';
+import colors from 'constants/colors';
 
-import { IconName } from '../../typings/icon';
+import { IconName } from 'typings/icon';
 
 import styles from './styles';
 

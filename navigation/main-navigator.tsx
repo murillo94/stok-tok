@@ -3,18 +3,18 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Icon, IconButton } from '../components';
+import { Icon, IconButton } from 'components';
 
-import HomeScreen from '../screens/home';
-import SearchScreen from '../screens/search';
-import FavoritesScreen from '../screens/favorites';
+import HomeScreen from 'screens/home';
+import SearchScreen from 'screens/search';
+import FavoritesScreen from 'screens/favorites';
 
-import { useCart } from '../hooks';
+import { useCart } from 'hooks';
 
-import colors from '../constants/colors';
-import header from '../constants/header';
+import colors from 'constants/colors';
+import header from 'constants/header';
 
-import { Navigation } from '../typings/navigation';
+import { Navigation } from 'typings/navigation';
 
 type CartProps = { onPress: () => void };
 

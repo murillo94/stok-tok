@@ -1,4 +1,4 @@
-import { endpoints } from '../endpoints';
+import { endpoints } from 'services';
 
 describe('endpoints', () => {
   describe('get', () => {

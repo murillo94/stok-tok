@@ -2,14 +2,14 @@ import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { IconButton } from '../components';
+import { IconButton } from 'components';
 
-import CartScreen from '../screens/cart';
+import CartScreen from 'screens/cart';
 
-import colors from '../constants/colors';
-import header from '../constants/header';
+import colors from 'constants/colors';
+import header from 'constants/header';
 
-import { Navigation } from '../typings/navigation';
+import { Navigation } from 'typings/navigation';
 const ModalStack = createStackNavigator<Navigation.ModalRouterStackParamList>();
 
 export default function ModalNavigator() {

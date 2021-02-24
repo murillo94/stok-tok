@@ -2,7 +2,7 @@ import {
   getResponsiveHeight,
   getResponsiveWidth,
   getResponsiveFontSize,
-} from '../index';
+} from 'utils';
 
 describe('dimensions', () => {
   it('will return typeof number', () => {

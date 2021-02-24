@@ -1,4 +1,4 @@
-import { HTTPMethods } from '../typings/request';
+import { HTTPMethods } from 'typings/request';
 
 export const endpoints = {
   [HTTPMethods.GET]: {

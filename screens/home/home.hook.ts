@@ -1,13 +1,13 @@
 import { useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 
-import { request, endpoints } from '../../services';
+import { request, endpoints } from 'services';
 
-import { useCart, useGrid } from '../../hooks';
+import { useCart, useGrid } from 'hooks';
 
-import { formatProducts } from '../../utils';
+import { formatProducts } from 'utils';
 
-import { Product } from '../../typings/product';
+import { Product } from 'typings/product';
 
 interface useHomeScreen {
   handleColumn: () => void;

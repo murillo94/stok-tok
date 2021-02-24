@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import { Image, IconButton } from '../index';
+import { Image, IconButton } from 'components';
 
-import { getResponsiveWidth } from '../../utils';
+import { getResponsiveWidth } from 'utils';
 
-import colors from '../../constants/colors';
+import colors from 'constants/colors';
 
-import { Product } from '../../typings/product';
+import { Product } from 'typings/product';
 
 import styles from './styles';
 
