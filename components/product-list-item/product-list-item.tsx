@@ -11,17 +11,18 @@ import styles from './styles';
 
 type ProductProps = Product & {
   numColumns: number;
+  onPressBuy: () => void;
 };
 
 const WIDTH = getResponsiveWidth(30);
 const HEIGHT = getResponsiveWidth(40);
 
 export function ProductListItem({
-  id,
   name,
   priceBRL,
   imageUrl,
   numColumns = 2,
+  onPressBuy,
 }: ProductProps) {
   return (
     <>
@@ -42,7 +43,7 @@ export function ProductListItem({
               {priceBRL}
             </Text>
             <View style={styles.containerButton}>
-              <Button onPress={() => null}>COMPRAR</Button>
+              <Button onPress={onPressBuy}>COMPRAR</Button>
             </View>
           </View>
         </Pressable>
@@ -61,7 +62,7 @@ export function ProductListItem({
           <Text numberOfLines={2} style={styles.price}>
             {priceBRL}
           </Text>
-          <Button onPress={() => null}>COMPRAR</Button>
+          <Button onPress={onPressBuy}>COMPRAR</Button>
         </Pressable>
       )}
     </>

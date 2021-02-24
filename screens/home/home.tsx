@@ -6,7 +6,13 @@ import { ProductListItem, ProductListHeader } from '../../components';
 import useHomeScreen from './home.hook';
 
 export default function HomeScreen() {
-  const { handleColumn, numColumns, keyGrid, data } = useHomeScreen();
+  const {
+    handleColumn,
+    handleBuy,
+    numColumns,
+    keyGrid,
+    data,
+  } = useHomeScreen();
 
   return (
     <View style={styles.container}>
@@ -24,7 +30,11 @@ export default function HomeScreen() {
           />
         )}
         renderItem={({ item }) => (
-          <ProductListItem {...item} numColumns={numColumns} />
+          <ProductListItem
+            {...item}
+            numColumns={numColumns}
+            onPressBuy={() => handleBuy(item)}
+          />
         )}
       />
     </View>
