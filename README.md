@@ -1,5 +1,3 @@
-# stok-tok
-
 <p align="center">
   <img alt="Stok Tok" src="./assets/images/icon.png" height="85" width="85" />
   <h3 align="center">Stok Tok</h3>
