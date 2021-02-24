@@ -1,74 +1,20 @@
 import React from 'react';
-import { ColorSchemeName } from 'react-native';
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import {
   createStackNavigator,
   TransitionPresets,
 } from '@react-navigation/stack';
 
-import IconButton from '../components/IconButton';
-
-import NotFoundScreen from '../screens/not-found';
-import CartScreen from '../screens/cart';
-
 import MainNavigator from './main-navigator';
-
-import useColorScheme from '../hooks/use-color-scheme';
-
-import Colors from '../constants/colors';
-import Header from '../constants/header';
+import ModalNavigator from './modal-navigator';
 
 import { Navigation } from '../typings/navigation';
 
-export default function NavigationWrapper({
-  colorScheme,
-}: {
-  colorScheme: ColorSchemeName;
-}) {
+export default function NavigationWrapper() {
   return (
-    <NavigationContainer
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-    >
+    <NavigationContainer>
       <RootNavigator />
     </NavigationContainer>
-  );
-}
-
-const ModalStack = createStackNavigator<Navigation.ModalRouterStackParamList>();
-
-function ModalNavigator() {
-  const colorScheme = useColorScheme();
-
-  return (
-    <ModalStack.Navigator
-      screenOptions={({ navigation }) => ({
-        headerBackImage: () => null,
-        headerBackTitleVisible: false,
-        headerRight: () => (
-          <IconButton
-            name="x"
-            color={Colors[colorScheme].tint}
-            onPress={() => navigation.goBack()}
-          />
-        ),
-        ...Header.style,
-      })}
-    >
-      <ModalStack.Screen
-        name={Navigation.CartRoutes.ROOT}
-        component={CartScreen}
-        options={{ title: Navigation.Modals.CART }}
-      />
-      <RootStack.Screen
-        name={Navigation.NotFoundRoutes.ROOT}
-        component={NotFoundScreen}
-        options={{ title: Navigation.Modals.NOT_FOUND }}
-      />
-    </ModalStack.Navigator>
   );
 }
 

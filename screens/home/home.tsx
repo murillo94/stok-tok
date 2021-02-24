@@ -1,36 +1,40 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import { ProductListItem, ProductListHeader } from '../../components';
+
+import useHomeScreen from './home.hook';
 
 export default function HomeScreen() {
+  const { handleColumn, numColumns, keyGrid, data } = useHomeScreen();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Todo</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
+      <FlatList
+        data={data}
+        key={keyGrid}
+        numColumns={numColumns}
+        removeClippedSubviews
+        keyExtractor={(item, index) => `${item.id} - ${index}`}
+        ListHeaderComponent={() => (
+          <ProductListHeader
+            length={data.length}
+            numColumns={numColumns}
+            onPress={handleColumn}
+          />
+        )}
+        renderItem={({ item }) => (
+          <ProductListItem {...item} numColumns={numColumns} />
+        )}
       />
-      <EditScreenInfo path="/screens/HomeScreen.tsx" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#ffffff',
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+    paddingVertical: 10,
   },
 });

@@ -1,28 +1,22 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default function CartScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Todo</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="/screens/CartScreen.tsx" />
+      <View style={styles.separator} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#ffffff',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 10,
   },
   title: {
     fontSize: 20,

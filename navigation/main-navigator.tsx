@@ -3,29 +3,27 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Icon from '../components/Icon';
-import IconButton from '../components/IconButton';
+import { Icon, IconButton } from '../components';
 
 import HomeScreen from '../screens/home';
 import SearchScreen from '../screens/search';
 import FavoritesScreen from '../screens/favorites';
 
-import useColorScheme from '../hooks/use-color-scheme';
-
-import Colors from '../constants/colors';
-import Header from '../constants/header';
+import colors from '../constants/colors';
+import header from '../constants/header';
 
 import { Navigation } from '../typings/navigation';
 
 const BottomTab = createBottomTabNavigator<Navigation.MainRouterStackParamList>();
 
 export default function MainNavigator() {
-  const colorScheme = useColorScheme();
-
   return (
     <BottomTab.Navigator
       initialRouteName={Navigation.HomeRoutes.ROOT}
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      tabBarOptions={{
+        activeTintColor: colors.light.tint,
+        inactiveTintColor: colors.light.tabIconDefault,
+      }}
     >
       <BottomTab.Screen
         name={Navigation.HomeRoutes.ROOT}
@@ -57,12 +55,10 @@ export default function MainNavigator() {
 
 // @ts-ignore
 function Cart({ onPress }) {
-  const colorScheme = useColorScheme();
-
   return (
     <IconButton
       name="shopping-bag"
-      color={Colors[colorScheme].tint}
+      color={colors.light.text}
       onPress={onPress}
     />
   );
@@ -83,7 +79,7 @@ function HomeNavigator() {
               onPress={() => navigation.navigate(Navigation.CartRoutes.ROOT)}
             />
           ),
-          ...Header.style,
+          ...header.style,
         })}
       />
     </HomeStack.Navigator>
@@ -105,7 +101,7 @@ function SearchNavigator() {
               onPress={() => navigation.navigate(Navigation.CartRoutes.ROOT)}
             />
           ),
-          ...Header.style,
+          ...header.style,
         })}
       />
     </SearchStack.Navigator>
@@ -127,7 +123,7 @@ function FavoritesNavigator() {
               onPress={() => navigation.navigate(Navigation.CartRoutes.ROOT)}
             />
           ),
-          ...Header.style,
+          ...header.style,
         })}
       />
     </FavoritesStack.Navigator>
