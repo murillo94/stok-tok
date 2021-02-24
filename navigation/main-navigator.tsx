@@ -24,8 +24,8 @@ export default function MainNavigator() {
     <BottomTab.Navigator
       initialRouteName={Navigation.HomeRoutes.ROOT}
       tabBarOptions={{
-        activeTintColor: colors.light.tint,
-        inactiveTintColor: colors.light.tabIconDefault,
+        activeTintColor: colors.tint,
+        inactiveTintColor: colors.tabIconDefault,
       }}
     >
       <BottomTab.Screen
@@ -54,7 +54,7 @@ function Cart({ onPress }: CartProps) {
   return (
     <IconButton
       name="shopping-bag"
-      color={colors.light.text}
+      color={colors.black}
       hasBadge={totalItems > 0}
       onPress={onPress}
     />

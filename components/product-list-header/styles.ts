@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import colors from 'constants/colors';
+
 import { getResponsiveFontSize } from 'utils';
 
 const styles = StyleSheet.create({
@@ -11,7 +13,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   title: {
-    color: '#333',
+    color: colors.black,
     fontSize: getResponsiveFontSize(2),
     fontWeight: '500',
   },

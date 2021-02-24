@@ -21,7 +21,7 @@ export default function ModalNavigator() {
         headerRight: () => (
           <IconButton
             name="x"
-            color={colors.light.text}
+            color={colors.black}
             onPress={() => navigation.goBack()}
           />
         ),

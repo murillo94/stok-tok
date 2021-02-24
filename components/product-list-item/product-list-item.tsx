@@ -29,8 +29,8 @@ export function ProductListItem({
   onPressBuy,
 }: ProductProps) {
   const backgroundColorButton: string = isInCart
-    ? colors.light.negative
-    : colors.light.tint;
+    ? colors.red
+    : colors.tint;
 
   return (
     <>

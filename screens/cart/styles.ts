@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
 
+import colors from 'constants/colors';
+
 import { getResponsiveFontSize } from 'utils';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ffffff',
+    backgroundColor: colors.white,
     padding: 30,
     flex: 1,
   },
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
   },
   totalContainer: {
     paddingTop: 20,
-    borderTopColor: '#b1b1b1',
+    borderTopColor: colors.gray,
     borderTopWidth: 1,
   },
   total: {

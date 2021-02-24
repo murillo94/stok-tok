@@ -1,4 +1,5 @@
 import { MutableRefObject, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { useCart } from 'hooks';
 
@@ -10,6 +11,7 @@ type ConfettiRef = MutableRefObject<{
   start: () => void;
 }>;
 interface useCartScreen {
+  navigateGoBack: () => void;
   handleRemove: (id: number) => void;
   handleCompleteOrder: (ref: ConfettiRef) => void;
   handleShowCompletedOrder: () => void;
@@ -20,9 +22,14 @@ interface useCartScreen {
 }
 
 export default function useCartScreen(): useCartScreen {
+  const navigation = useNavigation();
   const { removeItem, emptyCart, items, totalItems, cartTotal } = useCart();
   const [isCompletedOrder, setIsCompletedOrder] = useState<boolean>(false);
   const totalPrice: string = formatCurrency(cartTotal);
+
+  function navigateGoBack() {
+    navigation.goBack();
+  }
 
   function handleRemove(id: number): void {
     removeItem(id);
@@ -38,6 +45,7 @@ export default function useCartScreen(): useCartScreen {
   }
 
   return {
+    navigateGoBack,
     handleRemove,
     handleCompleteOrder,
     handleShowCompletedOrder,

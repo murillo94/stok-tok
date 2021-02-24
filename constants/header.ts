@@ -2,7 +2,7 @@ import colors from 'constants/colors';
 
 export default {
   style: {
-    headerTintColor: colors.light.text,
+    headerTintColor: colors.black,
     headerRightContainerStyle: { marginRight: 15 },
   },
 };

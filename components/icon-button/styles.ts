@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     right: -2,
     height: 12,
     width: 12,
-    backgroundColor: colors.light.negative,
+    backgroundColor: colors.red,
     borderRadius: 10,
   },
 });

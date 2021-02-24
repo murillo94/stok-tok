@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import colors from 'constants/colors';
+
 import { getResponsiveFontSize } from 'utils';
 
 const styles = StyleSheet.create({
@@ -9,7 +11,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   title: {
-    color: '#ffffff',
+    color: colors.white,
     fontSize: getResponsiveFontSize(1.6),
     fontWeight: 'bold',
     textAlign: 'center',

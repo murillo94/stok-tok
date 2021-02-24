@@ -7,7 +7,7 @@ export function useLocalStorage(
 ): [string, (value: Function | string) => void] {
   const [storedValue, setStoredValue] = useState(initialValue);
 
-  const setValue = async (value: Function | string) => {
+  async function setValue(value: Function | string) {
     try {
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;
@@ -18,19 +18,22 @@ export function useLocalStorage(
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+
+  // @ts-ignore
+  async function getValue() {
+    try {
+      const item = await AsyncStorage.getItem(key);
+      const value = item ?? initialValue;
+
+      setStoredValue(value);
+    } catch (error) {
+      return initialValue;
+    }
+  }
 
   useEffect(() => {
-    async () => {
-      try {
-        const item = await AsyncStorage.getItem(key);
-        const value = item ?? initialValue;
-
-        setStoredValue(value);
-      } catch (error) {
-        return initialValue;
-      }
-    };
+    getValue();
   }, []);
 
   return [storedValue as string, setValue];

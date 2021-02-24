@@ -48,7 +48,7 @@ export function ProductCartItem({
       <View style={styles.close}>
         <IconButton
           name="x"
-          color={colors.light.tabIconDefault}
+          color={colors.tabIconDefault}
           onPress={onPressRemove}
         />
       </View>

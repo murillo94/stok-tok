@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useRef } from 'react';
 import { View, FlatList, Text } from 'react-native';
 import ConfettiCannon from 'react-native-confetti-cannon';
@@ -9,8 +8,9 @@ import useCartScreen from './cart.hook';
 
 import styles from './styles';
 
-export default function CartScreen({ navigation }) {
+export default function CartScreen() {
   const {
+    navigateGoBack,
     handleRemove,
     handleCompleteOrder,
     handleShowCompletedOrder,
@@ -42,17 +42,13 @@ export default function CartScreen({ navigation }) {
                 <Text style={styles.title}>
                   Parabéns! Seu pedido foi finalizado
                 </Text>
-                <Button onPress={() => navigation.goBack()}>
-                  VOLTAR PARA A LISTA
-                </Button>
+                <Button onPress={navigateGoBack}>VOLTAR PARA A LISTA</Button>
               </>
             ) : (
               <>
                 <Icon name="shopping-bag" size={50} />
                 <Text style={styles.title}>Seu carrinho está vazio</Text>
-                <Button onPress={() => navigation.goBack()}>
-                  COMEÇAR A COMPRAR
-                </Button>
+                <Button onPress={navigateGoBack}>COMEÇAR A COMPRAR</Button>
               </>
             )}
           </View>
@@ -67,7 +63,12 @@ export default function CartScreen({ navigation }) {
       {items.length > 0 && (
         <View style={styles.totalContainer}>
           <Text style={styles.total}>Total: {totalPrice}</Text>
-          <Button onPress={() => handleCompleteOrder(confettiRef)}>
+          <Button
+            onPress={() => {
+              // @ts-ignore
+              handleCompleteOrder(confettiRef);
+            }}
+          >
             FECHAR PEDIDO
           </Button>
         </View>

@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
 
+import colors from 'constants/colors';
+
 import { getResponsiveFontSize } from 'utils';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f6f6f6',
+    backgroundColor: colors.lightGray,
     borderRadius: 8,
     flexDirection: 'row',
     alignItems: 'center',
@@ -17,14 +19,14 @@ const styles = StyleSheet.create({
     width: '70%',
   },
   title: {
-    color: '#333',
+    color: colors.black,
     fontSize: getResponsiveFontSize(1.7),
     fontWeight: '500',
     marginBottom: 10,
     marginRight: 25,
   },
   price: {
-    color: '#333',
+    color: colors.black,
     fontSize: getResponsiveFontSize(2),
     fontWeight: '700',
     marginBottom: 10,

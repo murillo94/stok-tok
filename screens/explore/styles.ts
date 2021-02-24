@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
 
+import colors from 'constants/colors';
+
 import { getResponsiveFontSize } from 'utils';
 
 const styles = StyleSheet.create({
   scroll: {
-    backgroundColor: '#ffffff',
+    backgroundColor: colors.white,
   },
   container: {
     flex: 1,
@@ -13,7 +15,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   title: {
-    color: '#333',
+    color: colors.black,
     fontSize: getResponsiveFontSize(2.5),
     fontWeight: '600',
     marginTop: 20,
@@ -27,10 +29,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   containerImage: {
-    backgroundColor: '#eaf9e4',
+    backgroundColor: colors.green,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
-    borderColor: '#b1b1b1',
+    borderColor: colors.gray,
     borderWidth: 1,
     borderBottomWidth: 0,
     paddingVertical: 20,
@@ -42,14 +44,14 @@ const styles = StyleSheet.create({
   containerDescription: {
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
-    borderColor: '#b1b1b1',
+    borderColor: colors.gray,
     borderWidth: 1,
     borderTopWidth: 0,
     padding: 20,
     width: '100%',
   },
   description: {
-    color: '#333',
+    color: colors.black,
     fontSize: getResponsiveFontSize(1.8),
     fontWeight: '600',
     textAlign: 'center',

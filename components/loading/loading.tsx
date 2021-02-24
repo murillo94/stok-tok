@@ -9,7 +9,7 @@ import colors from 'constants/colors';
 
 export function Loading({
   size = 50,
-  color = colors.light.tint,
+  color = colors.tint,
 }: ActivityIndicatorProps) {
   return (
     <>

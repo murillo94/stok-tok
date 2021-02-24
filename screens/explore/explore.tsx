@@ -23,8 +23,9 @@ export default function ExploreScreen() {
       <View style={styles.container}>
         {CATEGORIES_FURNITURE.map((item) => (
           <TouchableOpacity
-            style={styles.containerItem}
+            key={item.name}
             onPress={() => handleGoToCategorie(item)}
+            style={styles.containerItem}
           >
             <View style={styles.containerImage}>
               <Image
@@ -47,8 +48,9 @@ export default function ExploreScreen() {
       <View style={styles.container}>
         {CATEGORIES_ACCESSORIES.map((item) => (
           <TouchableOpacity
-            style={styles.containerItem}
+            key={item.name}
             onPress={() => handleGoToCategorie(item)}
+            style={styles.containerItem}
           >
             <View style={styles.containerImage}>
               <Image

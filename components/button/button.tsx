@@ -13,7 +13,7 @@ type ButtonProps = TouchableOpacityProps & {
 export function Button({
   children,
   onPress,
-  backgroundColor = colors.light.tint,
+  backgroundColor = colors.tint,
 }: ButtonProps) {
   return (
     <TouchableOpacity

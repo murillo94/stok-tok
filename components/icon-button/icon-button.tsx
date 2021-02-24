@@ -18,7 +18,7 @@ type IconButtonProps = {
 
 export function IconButton({
   name,
-  color = colors.light.text,
+  color = colors.black,
   hasBadge,
   onPress,
 }: IconButtonProps) {

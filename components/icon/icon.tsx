@@ -14,7 +14,7 @@ type IconProps = {
 export function Icon({
   name,
   size = 24,
-  color = colors.light.text,
+  color = colors.black,
   ...props
 }: IconProps) {
   return <Feather name={name} size={size} color={color} {...props} />;
