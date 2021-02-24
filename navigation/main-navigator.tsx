@@ -6,8 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Icon, IconButton } from 'components';
 
 import HomeScreen from 'screens/home';
-import SearchScreen from 'screens/search';
-import FavoritesScreen from 'screens/favorites';
+import ExploreScreen from 'screens/explore';
 
 import { useCart } from 'hooks';
 
@@ -38,19 +37,11 @@ export default function MainNavigator() {
         }}
       />
       <BottomTab.Screen
-        name={Navigation.SearchRoutes.ROOT}
+        name={Navigation.ExploreRoutes.ROOT}
         component={SearchNavigator}
         options={{
-          tabBarLabel: Navigation.Tabs.SEARCH,
+          tabBarLabel: Navigation.Tabs.EXPLORE,
           tabBarIcon: ({ color }) => <Icon name="search" color={color} />,
-        }}
-      />
-      <BottomTab.Screen
-        name={Navigation.FavoritesRoutes.ROOT}
-        component={FavoritesNavigator}
-        options={{
-          tabBarLabel: Navigation.Tabs.FAVORITES,
-          tabBarIcon: ({ color }) => <Icon name="heart" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -98,10 +89,10 @@ function SearchNavigator() {
   return (
     <SearchStack.Navigator>
       <SearchStack.Screen
-        name={Navigation.SearchRoutes.ROOT}
-        component={SearchScreen}
+        name={Navigation.ExploreRoutes.ROOT}
+        component={ExploreScreen}
         options={({ navigation }) => ({
-          headerTitle: Navigation.Tabs.SEARCH,
+          headerTitle: Navigation.Tabs.EXPLORE,
           headerRight: () => (
             <Cart
               onPress={() => navigation.navigate(Navigation.CartRoutes.ROOT)}
@@ -111,27 +102,5 @@ function SearchNavigator() {
         })}
       />
     </SearchStack.Navigator>
-  );
-}
-
-const FavoritesStack = createStackNavigator<Navigation.MainRouterStackParamList>();
-
-function FavoritesNavigator() {
-  return (
-    <FavoritesStack.Navigator>
-      <FavoritesStack.Screen
-        name={Navigation.FavoritesRoutes.ROOT}
-        component={FavoritesScreen}
-        options={({ navigation }) => ({
-          headerTitle: Navigation.Tabs.FAVORITES,
-          headerRight: () => (
-            <Cart
-              onPress={() => navigation.navigate(Navigation.CartRoutes.ROOT)}
-            />
-          ),
-          ...header.style,
-        })}
-      />
-    </FavoritesStack.Navigator>
   );
 }

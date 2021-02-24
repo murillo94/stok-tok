@@ -11,12 +11,8 @@ export namespace Navigation {
     ROOT = 'HOME',
   }
 
-  export enum SearchRoutes {
-    ROOT = 'SEARCH',
-  }
-
-  export enum FavoritesRoutes {
-    ROOT = 'FAVORITES',
+  export enum ExploreRoutes {
+    ROOT = 'EXPLORE',
   }
 
   export enum CartRoutes {
@@ -25,8 +21,7 @@ export namespace Navigation {
 
   export enum Tabs {
     HOME = 'Início',
-    SEARCH = 'Busca',
-    FAVORITES = 'Favoritos',
+    EXPLORE = 'Explorar',
   }
 
   export enum Modals {
@@ -43,7 +38,6 @@ export namespace Navigation {
 
   export type MainRouterStackParamList = {
     [HomeRoutes.ROOT]: undefined;
-    [SearchRoutes.ROOT]: undefined;
-    [FavoritesRoutes.ROOT]: undefined;
+    [ExploreRoutes.ROOT]: undefined;
   };
 }
