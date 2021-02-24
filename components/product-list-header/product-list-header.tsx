@@ -23,7 +23,6 @@ export function ProductListHeader({
       <Text style={styles.title}>{length} produtos</Text>
       <IconButton
         name={numColumns === 1 ? 'server' : 'columns'}
-        color={colors.light.text}
         onPress={onPress}
       />
     </View>
