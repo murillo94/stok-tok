@@ -28,7 +28,7 @@ export default function CartScreen() {
       />
       <View style={styles.totalContainer}>
         <Text style={styles.total}>Total: {totalPrice}</Text>
-        <Button onPress={() => null}>Fechar pedido</Button>
+        <Button onPress={() => null}>FECHAR PEDIDO</Button>
       </View>
     </View>
   );
