@@ -3,6 +3,7 @@
     "name": "stok-tok",
     "slug": "stok-tok",
     "version": "1.0.0",
+    "privacy": "public",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
