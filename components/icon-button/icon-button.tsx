@@ -3,20 +3,22 @@ import { Pressable, View } from 'react-native';
 
 import { Icon } from '../icon';
 
+import colors from '../../constants/colors';
+
 import { IconName } from '../../typings/icon';
 
 import styles from './styles';
 
 type IconButtonProps = {
   name: IconName;
-  color: string;
-  hasBadge: boolean;
+  color?: string;
+  hasBadge?: boolean;
   onPress: () => void;
 };
 
 export function IconButton({
   name,
-  color,
+  color = colors.light.text,
   hasBadge,
   onPress,
 }: IconButtonProps) {
