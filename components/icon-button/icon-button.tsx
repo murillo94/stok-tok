@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
 import { Icon } from '../icon';
 
@@ -23,13 +23,13 @@ export function IconButton({
   onPress,
 }: IconButtonProps) {
   return (
-    <Pressable
+    <TouchableOpacity
       hitSlop={{ top: 12, left: 12, right: 12, bottom: 12 }}
       onPress={onPress}
       style={styles.container}
     >
       <Icon name={name} color={color} />
       {hasBadge && <View style={styles.badge} />}
-    </Pressable>
+    </TouchableOpacity>
   );
 }

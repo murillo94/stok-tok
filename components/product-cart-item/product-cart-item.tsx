@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { Image, IconButton } from '../index';
 
@@ -25,31 +25,29 @@ export function ProductCartItem({
   onPressRemove,
 }: ProductProps) {
   return (
-    <Pressable onPress={() => null}>
-      <View style={styles.container}>
-        <Image
-          accessibilityRole="imagebutton"
-          accessibilityLabel={`${name} image`}
-          source={{ uri: imageUrl }}
-          width={WIDTH}
-          height={HEIGHT}
-        />
-        <View style={styles.infoContainer}>
-          <Text numberOfLines={2} style={styles.title}>
-            {name}
-          </Text>
-          <Text numberOfLines={2} style={styles.price}>
-            {priceBRL}
-          </Text>
-        </View>
-        <View style={styles.close}>
-          <IconButton
-            name="x"
-            color={colors.light.tabIconDefault}
-            onPress={onPressRemove}
-          />
-        </View>
+    <View style={styles.container}>
+      <Image
+        accessibilityRole="imagebutton"
+        accessibilityLabel={`${name} image`}
+        source={{ uri: imageUrl }}
+        width={WIDTH}
+        height={HEIGHT}
+      />
+      <View style={styles.infoContainer}>
+        <Text numberOfLines={2} style={styles.title}>
+          {name}
+        </Text>
+        <Text numberOfLines={2} style={styles.price}>
+          {priceBRL}
+        </Text>
       </View>
-    </Pressable>
+      <View style={styles.close}>
+        <IconButton
+          name="x"
+          color={colors.light.tabIconDefault}
+          onPress={onPressRemove}
+        />
+      </View>
+    </View>
   );
 }
