@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#333',
-    fontSize: getResponsiveFontSize(1.8),
+    fontSize: getResponsiveFontSize(2),
     fontWeight: '500',
   },
 });
