@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { View, FlatList, Text } from 'react-native';
 import ConfettiCannon from 'react-native-confetti-cannon';
 
-import { ProductCartItem, Button } from 'components';
+import { ProductCartItem, Button, Icon } from 'components';
 
 import useCartScreen from './cart.hook';
 
@@ -38,11 +38,17 @@ export default function CartScreen({ navigation }) {
           <View style={styles.containerEmpty}>
             {isCompletedOrder ? (
               <>
-                <Text style={styles.title}>Parabéns!!</Text>
-                <Text style={styles.title}>Seu pedido foi finalizado!</Text>
+                <Icon name="package" size={50} />
+                <Text style={styles.title}>
+                  Parabéns! {'\n\n'}Seu pedido foi finalizado
+                </Text>
+                <Button onPress={() => navigation.goBack()}>
+                  VOLTAR PARA A LISTA
+                </Button>
               </>
             ) : (
               <>
+                <Icon name="shopping-bag" size={50} />
                 <Text style={styles.title}>Seu carrinho está vazio</Text>
                 <Button onPress={() => navigation.goBack()}>
                   COMEÇAR A COMPRAR
