@@ -12,6 +12,7 @@ import { Product } from '../../typings/product';
 interface useHomeScreen {
   handleColumn: () => void;
   handleBuy: (item: Product) => void;
+  loading: boolean;
   numColumns: number;
   keyGrid: number;
   data: Product[];
@@ -19,6 +20,7 @@ interface useHomeScreen {
 
 export default function useHomeScreen(): useHomeScreen {
   const [data, setData] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const { handleColumn, numColumns, keyGrid } = useGrid();
   const { addItem } = useCart();
 
@@ -27,9 +29,11 @@ export default function useHomeScreen(): useHomeScreen {
   }
 
   async function getData(): Promise<void> {
+    await setLoading(true);
     const response = await request(endpoints.GET.sofa.sofas.request.url);
     const products = formatProducts(response);
-    setData(products);
+    await setData(products);
+    await setLoading(false);
   }
 
   useFocusEffect(
@@ -44,5 +48,5 @@ export default function useHomeScreen(): useHomeScreen {
     }, [])
   );
 
-  return { handleColumn, handleBuy, numColumns, keyGrid, data };
+  return { handleColumn, handleBuy, loading, numColumns, keyGrid, data };
 }
