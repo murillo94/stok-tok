@@ -38,7 +38,7 @@ export default function MainNavigator() {
       />
       <BottomTab.Screen
         name={Navigation.ExploreRoutes.ROOT}
-        component={SearchNavigator}
+        component={ExploreNavigator}
         options={{
           tabBarLabel: Navigation.Tabs.EXPLORE,
           tabBarIcon: ({ color }) => <Icon name="search" color={color} />,
@@ -83,12 +83,12 @@ function HomeNavigator() {
   );
 }
 
-const SearchStack = createStackNavigator<Navigation.MainRouterStackParamList>();
+const ExploreStack = createStackNavigator<Navigation.MainRouterStackParamList>();
 
-function SearchNavigator() {
+function ExploreNavigator() {
   return (
-    <SearchStack.Navigator>
-      <SearchStack.Screen
+    <ExploreStack.Navigator>
+      <ExploreStack.Screen
         name={Navigation.ExploreRoutes.ROOT}
         component={ExploreScreen}
         options={({ navigation }) => ({
@@ -101,6 +101,20 @@ function SearchNavigator() {
           ...header.style,
         })}
       />
-    </SearchStack.Navigator>
+      <ExploreStack.Screen
+        name={Navigation.ExploreRoutes.DETAILS}
+        component={HomeScreen}
+        options={({ navigation, route }) => ({
+          // @ts-ignore
+          headerTitle: route.params?.name,
+          headerRight: () => (
+            <Cart
+              onPress={() => navigation.navigate(Navigation.CartRoutes.ROOT)}
+            />
+          ),
+          ...header.style,
+        })}
+      />
+    </ExploreStack.Navigator>
   );
 }

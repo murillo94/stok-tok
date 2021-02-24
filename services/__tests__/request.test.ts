@@ -15,10 +15,10 @@ describe('request', () => {
       Promise.resolve(new Response(JSON.stringify({ id: 10, name: 'Chaise' })))
     );
 
-    await request(endpoints.GET.sofa.chaise.request.url);
+    await request(endpoints.GET.furniture.chair.request.url);
 
     expect(fetch).toHaveBeenCalledWith(
-      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/sofas/chaise-longue',
+      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/bancos-e-cadeiras',
       {
         method: HTTPMethods.GET,
       }
@@ -32,12 +32,12 @@ describe('request', () => {
     );
 
     const response = await request(
-      endpoints.GET.sofa.chaise.request.url,
+      endpoints.GET.furniture.chair.request.url,
       HTTPMethods.GET
     );
 
     expect(fetch).toHaveBeenCalledWith(
-      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/sofas/chaise-longue',
+      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/bancos-e-cadeiras',
       {
         method: HTTPMethods.GET,
       }
@@ -50,12 +50,12 @@ describe('request', () => {
     fetch.mockReturnValue(Promise.resolve(new Response('error')));
 
     const response = await request(
-      endpoints.GET.sofa.chaise.request.url,
+      endpoints.GET.furniture.chair.request.url,
       HTTPMethods.GET
     );
 
     expect(fetch).toHaveBeenCalledWith(
-      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/sofas/chaise-longue',
+      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/bancos-e-cadeiras',
       {
         method: HTTPMethods.GET,
       }

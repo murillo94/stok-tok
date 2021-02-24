@@ -1,3 +1,8 @@
+import colors from 'constants/colors';
+
 export default {
-  style: { headerRightContainerStyle: { marginRight: 15 } },
+  style: {
+    headerTintColor: colors.light.text,
+    headerRightContainerStyle: { marginRight: 15 },
+  },
 };

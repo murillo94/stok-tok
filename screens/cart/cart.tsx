@@ -40,7 +40,7 @@ export default function CartScreen({ navigation }) {
               <>
                 <Icon name="package" size={50} />
                 <Text style={styles.title}>
-                  Parabéns! {'\n\n'}Seu pedido foi finalizado
+                  Parabéns! Seu pedido foi finalizado
                 </Text>
                 <Button onPress={() => navigation.goBack()}>
                   VOLTAR PARA A LISTA

@@ -13,6 +13,7 @@ export namespace Navigation {
 
   export enum ExploreRoutes {
     ROOT = 'EXPLORE',
+    DETAILS = 'EXPLORE_DETAILS',
   }
 
   export enum CartRoutes {
@@ -39,5 +40,6 @@ export namespace Navigation {
   export type MainRouterStackParamList = {
     [HomeRoutes.ROOT]: undefined;
     [ExploreRoutes.ROOT]: undefined;
+    [ExploreRoutes.DETAILS]: undefined;
   };
 }

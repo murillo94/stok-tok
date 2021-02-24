@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, useRoute } from '@react-navigation/native';
 
 import { request, endpoints } from 'services';
 
@@ -24,6 +24,10 @@ export default function useHomeScreen(): useHomeScreen {
   const [loading, setLoading] = useState<boolean>(true);
   const { handleColumn, numColumns, keyGrid } = useGrid();
   const { addItem, removeItem, inCart } = useCart();
+  const { params } = useRoute();
+
+  // @ts-ignore
+  const url = params?.url ?? endpoints.GET.furniture.sofas.request.url;
 
   function handleBuy(item: Product): void {
     if (inCart(item.id)) {
@@ -35,7 +39,7 @@ export default function useHomeScreen(): useHomeScreen {
 
   async function getData(): Promise<void> {
     await setLoading(true);
-    const response = await request(endpoints.GET.sofa.sofas.request.url);
+    const response = await request(url);
     const products = formatProducts(response);
     await setData(products);
     await setLoading(false);

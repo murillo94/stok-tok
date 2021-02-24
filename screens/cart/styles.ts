@@ -13,17 +13,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 30,
+    textAlign: 'center',
   },
   title: {
     fontSize: getResponsiveFontSize(2.4),
     fontWeight: 'bold',
-    marginVertical: 20,
-    textAlign: 'center',
+    marginVertical: 25,
   },
   totalContainer: {
     paddingTop: 20,
     borderTopColor: '#b1b1b1',
-    borderTopWidth: 2,
+    borderTopWidth: 1,
   },
   total: {
     fontSize: getResponsiveFontSize(2),

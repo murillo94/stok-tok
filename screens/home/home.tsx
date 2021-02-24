@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 import { ProductListItem, ProductListHeader, Loading } from 'components';
 
 import useHomeScreen from './home.hook';
+
+import styles from './styles';
 
 export default function HomeScreen() {
   const {
@@ -47,11 +49,3 @@ export default function HomeScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#ffffff',
-    flex: 1,
-    justifyContent: 'center',
-  },
-});

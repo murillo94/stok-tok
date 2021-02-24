@@ -3,50 +3,56 @@ import { endpoints } from 'services';
 describe('endpoints', () => {
   describe('get', () => {
     it('will return the correct request sofas url', () => {
-      expect(endpoints.GET.sofa.sofas.request).toEqual({
-        url: 'moveis/sofas/sofas',
+      expect(endpoints.GET.furniture.sofas.request).toEqual({
+        url: 'moveis/sofas',
       });
     });
 
-    it('will return the correct request chaise url', () => {
-      expect(endpoints.GET.sofa.chaise.request).toEqual({
-        url: 'moveis/sofas/chaise-longue',
+    it('will return the correct request chair url', () => {
+      expect(endpoints.GET.furniture.chair.request).toEqual({
+        url: 'moveis/bancos-e-cadeiras',
       });
     });
 
-    it('will return the correct request chaise url', () => {
-      expect(endpoints.GET.office.cabinets.request).toEqual({
-        url: 'moveis-office/armarios',
+    it('will return the correct request cabinets url', () => {
+      expect(endpoints.GET.furniture.cabinets.request).toEqual({
+        url: 'moveis/armarios',
       });
     });
 
-    it('will return the correct request chaise url', () => {
-      expect(endpoints.GET.office.shelves.request).toEqual({
-        url: 'moveis-office/estantes',
+    it('will return the correct request shelves url', () => {
+      expect(endpoints.GET.furniture.shelves.request).toEqual({
+        url: 'moveis/estante-e-racks',
       });
     });
 
-    it('will return the correct request chaise url', () => {
-      expect(endpoints.GET.closet.closets.request).toEqual({
-        url: 'moveis/armarios/guarda-roupas',
+    it('will return the correct request tables url', () => {
+      expect(endpoints.GET.furniture.tables.request).toEqual({
+        url: 'moveis/mesas',
       });
     });
 
-    it('will return the correct request chaise url', () => {
-      expect(endpoints.GET.closet.boxes.request).toEqual({
-        url: 'moveis/armarios/baus',
+    it('will return the correct request bed url', () => {
+      expect(endpoints.GET.accessories.bed.request).toEqual({
+        url: 'acessorios/cama',
       });
     });
 
-    it('will return the correct request chaise url', () => {
-      expect(endpoints.GET.chairs.office.request).toEqual({
-        url: 'moveis/bancos-e-cadeiras/cadeiras-de-escritorio',
+    it('will return the correct request table url', () => {
+      expect(endpoints.GET.accessories.table.request).toEqual({
+        url: 'acessorios/mesa',
       });
     });
 
-    it('will return the correct request chaise url', () => {
-      expect(endpoints.GET.chairs.benches.request).toEqual({
-        url: 'moveis/bancos-e-cadeiras/bancos',
+    it('will return the correct request kitchen url', () => {
+      expect(endpoints.GET.accessories.kitchen.request).toEqual({
+        url: 'acessorios/cozinha',
+      });
+    });
+
+    it('will return the correct request decoration url', () => {
+      expect(endpoints.GET.accessories.decoration.request).toEqual({
+        url: 'acessorios/decoracao',
       });
     });
   });

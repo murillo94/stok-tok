@@ -2,51 +2,52 @@ import { HTTPMethods } from 'typings/request';
 
 export const endpoints = {
   [HTTPMethods.GET]: {
-    sofa: {
+    furniture: {
       sofas: {
         request: {
-          url: 'moveis/sofas/sofas',
+          url: 'moveis/sofas',
         },
       },
-      chaise: {
+      chair: {
         request: {
-          url: 'moveis/sofas/chaise-longue',
+          url: 'moveis/bancos-e-cadeiras',
         },
       },
-    },
-    office: {
       cabinets: {
         request: {
-          url: 'moveis-office/armarios',
+          url: 'moveis/armarios',
         },
       },
       shelves: {
         request: {
-          url: 'moveis-office/estantes',
+          url: 'moveis/estante-e-racks',
+        },
+      },
+      tables: {
+        request: {
+          url: 'moveis/mesas',
         },
       },
     },
-    closet: {
-      closets: {
+    accessories: {
+      bed: {
         request: {
-          url: 'moveis/armarios/guarda-roupas',
+          url: 'acessorios/cama',
         },
       },
-      boxes: {
+      table: {
         request: {
-          url: 'moveis/armarios/baus',
+          url: 'acessorios/mesa',
         },
       },
-    },
-    chairs: {
-      office: {
+      kitchen: {
         request: {
-          url: 'moveis/bancos-e-cadeiras/cadeiras-de-escritorio',
+          url: 'acessorios/cozinha',
         },
       },
-      benches: {
+      decoration: {
         request: {
-          url: 'moveis/bancos-e-cadeiras/bancos',
+          url: 'acessorios/decoracao',
         },
       },
     },
