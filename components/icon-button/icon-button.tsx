@@ -1,25 +1,33 @@
 import React from 'react';
-import { Pressable } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { Icon } from '../icon';
 
 import { IconName } from '../../typings/icon';
 
+import styles from './styles';
+
+type IconButtonProps = {
+  name: IconName;
+  color: string;
+  hasBadge: boolean;
+  onPress: () => void;
+};
+
 export function IconButton({
   name,
   color,
+  hasBadge,
   onPress,
-}: {
-  name: IconName;
-  color: string;
-  onPress: () => any;
-}) {
+}: IconButtonProps) {
   return (
     <Pressable
+      hitSlop={{ top: 12, left: 12, right: 12, bottom: 12 }}
       onPress={onPress}
-      hitSlop={{ top: 10, left: 10, right: 10, bottom: 10 }}
+      style={styles.container}
     >
       <Icon name={name} color={color} />
+      {hasBadge && <View style={styles.badge} />}
     </Pressable>
   );
 }
