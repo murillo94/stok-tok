@@ -1,5 +1,6 @@
-import { relative } from 'path';
 import { StyleSheet } from 'react-native';
+
+import colors from '../../constants/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
     right: -2,
     height: 12,
     width: 12,
-    backgroundColor: 'red',
+    backgroundColor: colors.light.negative,
     borderRadius: 10,
   },
 });

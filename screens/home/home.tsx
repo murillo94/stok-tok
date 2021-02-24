@@ -9,6 +9,7 @@ export default function HomeScreen() {
   const {
     handleColumn,
     handleBuy,
+    inCart,
     loading,
     numColumns,
     keyGrid,
@@ -36,6 +37,7 @@ export default function HomeScreen() {
           renderItem={({ item }) => (
             <ProductListItem
               {...item}
+              isInCart={inCart(item.id)}
               numColumns={numColumns}
               onPressBuy={() => handleBuy(item)}
             />

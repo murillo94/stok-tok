@@ -8,8 +8,10 @@ import { getResponsiveWidth } from '../../utils';
 import { Product } from '../../typings/product';
 
 import styles from './styles';
+import colors from '../../constants/colors';
 
 type ProductProps = Product & {
+  isInCart: boolean;
   numColumns: number;
   onPressBuy: () => void;
 };
@@ -18,12 +20,17 @@ const WIDTH = getResponsiveWidth(32);
 const HEIGHT = getResponsiveWidth(32);
 
 export function ProductListItem({
+  isInCart,
+  numColumns = 2,
   name,
   priceBRL,
   imageUrl,
-  numColumns = 2,
   onPressBuy,
 }: ProductProps) {
+  const backgroundColorButton = isInCart
+    ? colors.light.negative
+    : colors.light.tint;
+
   return (
     <>
       {numColumns === 1 ? (
@@ -43,7 +50,12 @@ export function ProductListItem({
               {priceBRL}
             </Text>
             <View style={styles.containerButton}>
-              <Button onPress={onPressBuy}>COMPRAR</Button>
+              <Button
+                onPress={onPressBuy}
+                backgroundColor={backgroundColorButton}
+              >
+                {isInCart ? 'REMOVER' : 'COMPRAR'}
+              </Button>
             </View>
           </View>
         </Pressable>
@@ -62,7 +74,9 @@ export function ProductListItem({
           <Text numberOfLines={2} style={styles.price}>
             {priceBRL}
           </Text>
-          <Button onPress={onPressBuy}>COMPRAR</Button>
+          <Button onPress={onPressBuy} backgroundColor={backgroundColorButton}>
+            {isInCart ? 'REMOVER' : 'COMPRAR'}
+          </Button>
         </Pressable>
       )}
     </>

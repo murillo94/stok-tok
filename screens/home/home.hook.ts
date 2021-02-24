@@ -12,6 +12,7 @@ import { Product } from '../../typings/product';
 interface useHomeScreen {
   handleColumn: () => void;
   handleBuy: (item: Product) => void;
+  inCart: (id: number) => boolean;
   loading: boolean;
   numColumns: number;
   keyGrid: number;
@@ -22,10 +23,14 @@ export default function useHomeScreen(): useHomeScreen {
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const { handleColumn, numColumns, keyGrid } = useGrid();
-  const { addItem } = useCart();
+  const { addItem, removeItem, inCart } = useCart();
 
   function handleBuy(item: Product) {
-    addItem(item);
+    if (inCart(item.id)) {
+      removeItem(item.id);
+    } else {
+      addItem(item);
+    }
   }
 
   async function getData(): Promise<void> {
@@ -48,5 +53,13 @@ export default function useHomeScreen(): useHomeScreen {
     }, [])
   );
 
-  return { handleColumn, handleBuy, loading, numColumns, keyGrid, data };
+  return {
+    handleColumn,
+    handleBuy,
+    inCart,
+    loading,
+    numColumns,
+    keyGrid,
+    data,
+  };
 }
