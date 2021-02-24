@@ -14,6 +14,8 @@ import header from '../constants/header';
 
 import { Navigation } from '../typings/navigation';
 
+type CartProps = { onPress: () => void };
+
 const BottomTab = createBottomTabNavigator<Navigation.MainRouterStackParamList>();
 
 export default function MainNavigator() {
@@ -53,8 +55,7 @@ export default function MainNavigator() {
   );
 }
 
-// @ts-ignore
-function Cart({ onPress }) {
+function Cart({ onPress }: CartProps) {
   return (
     <IconButton
       name="shopping-bag"
