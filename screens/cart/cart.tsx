@@ -1,29 +1,35 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
+
+import { ProductCartItem, Button } from '../../components';
+
+import useCartScreen from './cart.hook';
+
+import styles from './styles';
 
 export default function CartScreen() {
+  const { handleRemove, items, totalItems, totalPrice } = useCartScreen();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Todo</Text>
-      <View style={styles.separator} />
+      <FlatList
+        data={items}
+        removeClippedSubviews
+        keyExtractor={(item, index) => `${item.id} - ${index}`}
+        ListHeaderComponent={() => (
+          <Text style={styles.title}>Total de produtos ({totalItems})</Text>
+        )}
+        renderItem={({ item }) => (
+          <ProductCartItem
+            {...item}
+            onPressRemove={() => handleRemove(item.id)}
+          />
+        )}
+      />
+      <View style={styles.totalContainer}>
+        <Text style={styles.total}>Total: {totalPrice}</Text>
+        <Button onPress={() => null}>Fechar pedido</Button>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#ffffff',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});

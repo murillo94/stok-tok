@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 import { useLocalStorage } from './';
 
-interface Item {
+export interface Item {
   id: number;
   price: number;
   quantity?: number;
