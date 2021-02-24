@@ -16,7 +16,7 @@ export default function App() {
       <SafeAreaProvider>
         <CartProvider>
           <Navigation />
-          <StatusBar />
+          <StatusBar style="dark" />
         </CartProvider>
       </SafeAreaProvider>
     );
