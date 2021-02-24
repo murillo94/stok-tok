@@ -1,8 +1,11 @@
 import React from 'react';
 import { Pressable } from 'react-native';
-import Icon, { IconName } from './Icon';
 
-export default function IconButton({
+import { Icon } from '../icon';
+
+import { IconName } from '../../typings/icon';
+
+export function IconButton({
   name,
   color,
   onPress,
