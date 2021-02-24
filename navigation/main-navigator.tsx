@@ -9,6 +9,8 @@ import HomeScreen from '../screens/home';
 import SearchScreen from '../screens/search';
 import FavoritesScreen from '../screens/favorites';
 
+import { useCart } from '../hooks';
+
 import colors from '../constants/colors';
 import header from '../constants/header';
 
@@ -56,10 +58,13 @@ export default function MainNavigator() {
 }
 
 function Cart({ onPress }: CartProps) {
+  const { totalItems } = useCart();
+
   return (
     <IconButton
       name="shopping-bag"
       color={colors.light.text}
+      hasBadge={totalItems > 0}
       onPress={onPress}
     />
   );
