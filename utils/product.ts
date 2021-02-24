@@ -19,7 +19,7 @@ export function formatProducts(products: any): Product[] {
 
     return {
       id: item?.productId ?? '',
-      name: capitalize(item?.productTitle) ?? '',
+      name: item.productTitle ? capitalize(item.productTitle) : '',
       price,
       priceBRL: formatCurrency(price),
       imageUrl: item?.items[0]?.images[0].imageUrl ?? '',

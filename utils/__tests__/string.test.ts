@@ -1,4 +1,4 @@
-import { capitalize } from '../string';
+import { capitalize } from '../index';
 
 describe('dimensions', () => {
   it('will return string normal', () => {
