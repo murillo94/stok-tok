@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
 
-import Config from '../../config/env';
+import Config from '../config/env';
 
-import { HTTPMethods } from '../../typings/request';
+import { HTTPMethods } from '../typings/request';
 
 const DEFAULT_MESSAGE_ERROR =
   'Ops! Ocorreu um problema inesperado, tente novamente mais tarde!';
 
-export default async function request(endpoint: string, method?: HTTPMethods) {
+export async function request(endpoint: string, method?: HTTPMethods) {
   try {
     const response = await fetch(`${Config.API_HOST}${endpoint}`, {
       method: method ?? HTTPMethods.GET,

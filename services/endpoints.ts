@@ -1,6 +1,6 @@
-import { HTTPMethods } from '../../typings/request';
+import { HTTPMethods } from '../typings/request';
 
-const endpoints = {
+export const endpoints = {
   [HTTPMethods.GET]: {
     sofa: {
       sofas: {
@@ -52,5 +52,3 @@ const endpoints = {
     },
   },
 };
-
-export default endpoints;

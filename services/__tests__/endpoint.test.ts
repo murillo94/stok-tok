@@ -1,4 +1,4 @@
-import { endpoints } from '../../index';
+import { endpoints } from '../endpoints';
 
 describe('endpoints', () => {
   describe('get', () => {
