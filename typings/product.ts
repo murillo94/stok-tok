@@ -3,5 +3,6 @@ export interface Product {
   name?: string;
   price: number;
   priceBRL?: string;
+  quantity?: number;
   imageUrl?: string;
 }

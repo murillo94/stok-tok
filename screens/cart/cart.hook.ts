@@ -1,4 +1,4 @@
-import { useCart, Item } from '../../hooks';
+import { useCart } from '../../hooks';
 
 import { formatCurrency } from '../../utils';
 

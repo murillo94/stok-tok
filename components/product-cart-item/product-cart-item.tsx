@@ -21,6 +21,7 @@ const HEIGHT = getResponsiveWidth(20);
 export function ProductCartItem({
   name,
   priceBRL,
+  quantity,
   imageUrl,
   onPressRemove,
 }: ProductProps) {
@@ -39,6 +40,9 @@ export function ProductCartItem({
         </Text>
         <Text numberOfLines={2} style={styles.price}>
           {priceBRL}
+        </Text>
+        <Text numberOfLines={2} style={styles.title}>
+          Qtd. {quantity}
         </Text>
       </View>
       <View style={styles.close}>

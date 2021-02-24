@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     color: '#333',
     fontSize: getResponsiveFontSize(2),
     fontWeight: '700',
+    marginBottom: 10,
   },
   close: {
     position: 'absolute',
