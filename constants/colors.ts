@@ -7,5 +7,6 @@ export default {
     tint: tintColorLight,
     tabIconDefault: '#b1b1b1',
     tabIconSelected: tintColorLight,
+    negative: '#ff6666',
   },
 };
