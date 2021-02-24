@@ -14,8 +14,8 @@ type ProductProps = Product & {
   onPressBuy: () => void;
 };
 
-const WIDTH = getResponsiveWidth(30);
-const HEIGHT = getResponsiveWidth(40);
+const WIDTH = getResponsiveWidth(32);
+const HEIGHT = getResponsiveWidth(32);
 
 export function ProductListItem({
   name,
