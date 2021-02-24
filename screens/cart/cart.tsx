@@ -7,7 +7,8 @@ import useCartScreen from './cart.hook';
 
 import styles from './styles';
 
-export default function CartScreen() {
+// @ts-ignore
+export default function CartScreen({ navigation }) {
   const { handleRemove, items, totalItems, totalPrice } = useCartScreen();
 
   return (
@@ -17,7 +18,19 @@ export default function CartScreen() {
         removeClippedSubviews
         keyExtractor={(item, index) => `${item.id} - ${index}`}
         ListHeaderComponent={() => (
-          <Text style={styles.title}>Total de produtos ({totalItems})</Text>
+          <>
+            {items.length > 0 && (
+              <Text style={styles.title}>Total de produtos ({totalItems})</Text>
+            )}
+          </>
+        )}
+        ListEmptyComponent={() => (
+          <View style={styles.containerEmpty}>
+            <Text style={styles.title}>Seu carrinho está vazio</Text>
+            <Button onPress={() => navigation.goBack()}>
+              COMEÇAR A COMPRAR
+            </Button>
+          </View>
         )}
         renderItem={({ item }) => (
           <ProductCartItem
@@ -26,10 +39,12 @@ export default function CartScreen() {
           />
         )}
       />
-      <View style={styles.totalContainer}>
-        <Text style={styles.total}>Total: {totalPrice}</Text>
-        <Button onPress={() => null}>FECHAR PEDIDO</Button>
-      </View>
+      {items.length > 0 && (
+        <View style={styles.totalContainer}>
+          <Text style={styles.total}>Total: {totalPrice}</Text>
+          <Button onPress={() => null}>FECHAR PEDIDO</Button>
+        </View>
+      )}
     </View>
   );
 }

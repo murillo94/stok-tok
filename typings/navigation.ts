@@ -31,12 +31,10 @@ export namespace Navigation {
 
   export enum Modals {
     CART = 'Sacola de compras',
-    NOT_FOUND = 'Oops!',
   }
 
   export type ModalRouterStackParamList = {
     [CartRoutes.ROOT]: undefined;
-    [NotFoundRoutes.ROOT]: undefined;
   };
 
   export type RootRouterStackParamList = {

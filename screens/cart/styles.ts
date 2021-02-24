@@ -5,7 +5,13 @@ import { getResponsiveFontSize } from '../../utils';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ffffff',
+    padding: 30,
     flex: 1,
+  },
+  containerEmpty: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 30,
   },
   title: {
