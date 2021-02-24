@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     fontSize: getResponsiveFontSize(1.7),
     fontWeight: '500',
     marginBottom: 10,
+    marginRight: 20,
   },
   price: {
     color: '#333',

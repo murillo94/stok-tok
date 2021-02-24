@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { Image, Button } from '../index';
 
@@ -34,33 +34,31 @@ export function ProductListItem({
   return (
     <>
       {numColumns === 1 ? (
-        <Pressable onPress={() => null}>
-          <View style={styles.containerSingleItem}>
-            <Image
-              accessibilityRole="imagebutton"
-              accessibilityLabel={`${name} image`}
-              source={{ uri: imageUrl }}
-              width={WIDTH}
-              height={HEIGHT}
-            />
-            <Text numberOfLines={2} style={styles.title}>
-              {name}
-            </Text>
-            <Text numberOfLines={2} style={styles.price}>
-              {priceBRL}
-            </Text>
-            <View style={styles.containerButton}>
-              <Button
-                onPress={onPressBuy}
-                backgroundColor={backgroundColorButton}
-              >
-                {isInCart ? 'REMOVER' : 'COMPRAR'}
-              </Button>
-            </View>
+        <View style={styles.containerSingleItem}>
+          <Image
+            accessibilityRole="imagebutton"
+            accessibilityLabel={`${name} image`}
+            source={{ uri: imageUrl }}
+            width={WIDTH}
+            height={HEIGHT}
+          />
+          <Text numberOfLines={2} style={styles.title}>
+            {name}
+          </Text>
+          <Text numberOfLines={2} style={styles.price}>
+            {priceBRL}
+          </Text>
+          <View style={styles.containerButton}>
+            <Button
+              onPress={onPressBuy}
+              backgroundColor={backgroundColorButton}
+            >
+              {isInCart ? 'REMOVER' : 'COMPRAR'}
+            </Button>
           </View>
-        </Pressable>
+        </View>
       ) : (
-        <Pressable style={styles.containerParentItem} onPress={() => null}>
+        <View style={styles.containerParentItem}>
           <Image
             accessibilityRole="imagebutton"
             accessibilityLabel={`${name} image`}
@@ -77,7 +75,7 @@ export function ProductListItem({
           <Button onPress={onPressBuy} backgroundColor={backgroundColorButton}>
             {isInCart ? 'REMOVER' : 'COMPRAR'}
           </Button>
-        </Pressable>
+        </View>
       )}
     </>
   );
