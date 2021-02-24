@@ -7,7 +7,7 @@ import { useCart, useGrid } from 'hooks';
 
 import { formatProducts } from 'utils';
 
-import { Product } from 'typings/product';
+import { Product } from 'types/product';
 
 interface useHomeScreen {
   handleColumn: () => void;

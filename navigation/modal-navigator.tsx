@@ -9,7 +9,7 @@ import CartScreen from 'screens/cart';
 import colors from 'constants/colors';
 import header from 'constants/header';
 
-import { Navigation } from 'typings/navigation';
+import { Navigation } from 'types/navigation';
 const ModalStack = createStackNavigator<Navigation.ModalRouterStackParamList>();
 
 export default function ModalNavigator() {

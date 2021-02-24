@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 import Config from 'config/env';
 
-import { HTTPMethods } from 'typings/request';
+import { HTTPMethods } from 'types/request';
 
 const DEFAULT_MESSAGE_ERROR =
   'Ops! Ocorreu um problema inesperado, tente novamente mais tarde!';

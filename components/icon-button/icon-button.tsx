@@ -5,7 +5,7 @@ import { Icon } from 'components';
 
 import colors from 'constants/colors';
 
-import { IconName } from 'typings/icon';
+import { IconName } from 'types/icon';
 
 import styles from './styles';
 

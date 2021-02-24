@@ -2,7 +2,7 @@ import currency from 'currency.js';
 
 import { capitalize } from 'utils';
 
-import { Product } from 'typings/product';
+import { Product } from 'types/product';
 
 export function formatCurrency(value: number): string {
   return currency(value, {

@@ -8,7 +8,7 @@ import {
 import MainNavigator from './main-navigator';
 import ModalNavigator from './modal-navigator';
 
-import { Navigation } from 'typings/navigation';
+import { Navigation } from 'types/navigation';
 
 export default function NavigationWrapper() {
   return (

@@ -24,7 +24,7 @@ module.exports = function (api) {
             '@screens/*': './screens/*',
             '@components/*': './components/*',
             '@assets/*': './assets/*',
-            '@typings/*': './typings/*',
+            '@types/*': './types/*',
             '@config/*': './config/*',
           },
         },

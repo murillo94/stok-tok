@@ -5,7 +5,7 @@ import { useCart } from 'hooks';
 
 import { formatCurrency } from 'utils';
 
-import { Product } from 'typings/product';
+import { Product } from 'types/product';
 
 type ConfettiRef = MutableRefObject<{
   start: () => void;

@@ -13,7 +13,7 @@ import { useCart } from 'hooks';
 import colors from 'constants/colors';
 import header from 'constants/header';
 
-import { Navigation } from 'typings/navigation';
+import { Navigation } from 'types/navigation';
 
 type CartProps = { onPress: () => void };
 

@@ -3,7 +3,7 @@ import { Feather } from '@expo/vector-icons';
 
 import colors from 'constants/colors';
 
-import { IconName } from 'typings/icon';
+import { IconName } from 'types/icon';
 
 type IconProps = {
   name: IconName;

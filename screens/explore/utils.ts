@@ -1,6 +1,6 @@
 import { endpoints } from 'services';
 
-import { Categorie } from 'typings/explore';
+import { Categorie } from 'types/explore';
 
 export const CATEGORIES_FURNITURE: Categorie[] = [
   {

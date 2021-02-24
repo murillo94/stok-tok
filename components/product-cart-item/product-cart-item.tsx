@@ -7,7 +7,7 @@ import { getResponsiveWidth } from 'utils';
 
 import colors from 'constants/colors';
 
-import { Product } from 'typings/product';
+import { Product } from 'types/product';
 
 import styles from './styles';
 

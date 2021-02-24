@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 
-import { Categorie } from 'typings/explore';
-import { Navigation } from 'typings/navigation';
+import { Categorie } from 'types/explore';
+import { Navigation } from 'types/navigation';
 
 interface useExploreScreen {
   handleGoToCategorie: (item: Categorie) => void;
