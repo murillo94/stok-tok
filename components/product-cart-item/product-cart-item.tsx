@@ -15,8 +15,8 @@ type ProductProps = Product & {
   onPressRemove: () => void;
 };
 
-const WIDTH = getResponsiveWidth(20);
-const HEIGHT = getResponsiveWidth(20);
+const WIDTH: number = getResponsiveWidth(20);
+const HEIGHT: number = getResponsiveWidth(20);
 
 export function ProductCartItem({
   name,

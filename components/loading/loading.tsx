@@ -1,9 +1,16 @@
 import React from 'react';
-import { Platform, ActivityIndicator } from 'react-native';
+import {
+  Platform,
+  ActivityIndicator,
+  ActivityIndicatorProps,
+} from 'react-native';
 
 import colors from 'constants/colors';
 
-export function Loading({ size = 50, color = colors.light.tint }) {
+export function Loading({
+  size = 50,
+  color = colors.light.tint,
+}: ActivityIndicatorProps) {
   return (
     <>
       {Platform.OS === 'ios' ? (

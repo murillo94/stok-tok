@@ -21,18 +21,18 @@ interface useCartScreen {
 
 export default function useCartScreen(): useCartScreen {
   const { removeItem, emptyCart, items, totalItems, cartTotal } = useCart();
-  const [isCompletedOrder, setIsCompletedOrder] = useState(false);
-  const totalPrice = formatCurrency(cartTotal);
+  const [isCompletedOrder, setIsCompletedOrder] = useState<boolean>(false);
+  const totalPrice: string = formatCurrency(cartTotal);
 
-  function handleRemove(id: number) {
+  function handleRemove(id: number): void {
     removeItem(id);
   }
 
-  function handleCompleteOrder(ref: ConfettiRef) {
+  function handleCompleteOrder(ref: ConfettiRef): void {
     ref?.current?.start();
   }
 
-  function handleShowCompletedOrder() {
+  function handleShowCompletedOrder(): void {
     setIsCompletedOrder(true);
     emptyCart();
   }

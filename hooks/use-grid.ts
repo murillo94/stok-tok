@@ -7,8 +7,8 @@ interface useGrid {
 }
 
 export function useGrid(): useGrid {
-  const [isColumn, setIsColumn] = useState(true);
-  const [keyGrid, setKeyGrid] = useState(1);
+  const [isColumn, setIsColumn] = useState<boolean>(true);
+  const [keyGrid, setKeyGrid] = useState<number>(1);
   const numColumns = isColumn ? 2 : 1;
 
   function handleColumn(): void {

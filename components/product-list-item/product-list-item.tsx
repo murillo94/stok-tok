@@ -17,8 +17,8 @@ type ProductProps = Product & {
   onPressBuy: () => void;
 };
 
-const WIDTH = getResponsiveWidth(32);
-const HEIGHT = getResponsiveWidth(32);
+const WIDTH: number = getResponsiveWidth(32);
+const HEIGHT: number = getResponsiveWidth(32);
 
 export function ProductListItem({
   isInCart,
@@ -28,7 +28,7 @@ export function ProductListItem({
   imageUrl,
   onPressBuy,
 }: ProductProps) {
-  const backgroundColorButton = isInCart
+  const backgroundColorButton: string = isInCart
     ? colors.light.negative
     : colors.light.tint;
 

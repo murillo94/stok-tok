@@ -25,7 +25,7 @@ export default function useHomeScreen(): useHomeScreen {
   const { handleColumn, numColumns, keyGrid } = useGrid();
   const { addItem, removeItem, inCart } = useCart();
 
-  function handleBuy(item: Product) {
+  function handleBuy(item: Product): void {
     if (inCart(item.id)) {
       removeItem(item.id);
     } else {

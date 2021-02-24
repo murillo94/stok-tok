@@ -10,7 +10,12 @@ const { Response } = jest.requireActual('node-fetch');
 
 describe('request', () => {
   it('will return default method', async () => {
-    const response = await request(endpoints.GET.sofa.chaise.request.url);
+    // @ts-ignore
+    fetch.mockReturnValue(
+      Promise.resolve(new Response(JSON.stringify({ id: 10, name: 'Chaise' })))
+    );
+
+    await request(endpoints.GET.sofa.chaise.request.url);
 
     expect(fetch).toHaveBeenCalledWith(
       'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/sofas/chaise-longue',
@@ -55,9 +60,6 @@ describe('request', () => {
         method: HTTPMethods.GET,
       }
     );
-    expect(response).toStrictEqual({
-      message:
-        'Ops! Ocorreu um problema inesperado, tente novamente mais tarde!',
-    });
+    expect(response).toHaveProperty('message');
   });
 });
