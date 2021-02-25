@@ -55,6 +55,7 @@ function Cart({ onPress }: CartProps) {
     <IconButton
       name="shopping-bag"
       color={colors.black}
+      accessibilityLabel="Sacola de compras"
       hasBadge={totalItems > 0}
       onPress={onPress}
     />

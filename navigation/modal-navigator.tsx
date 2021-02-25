@@ -22,6 +22,7 @@ export default function ModalNavigator() {
           <IconButton
             name="x"
             color={colors.black}
+            accessibilityLabel="Fechar"
             onPress={() => navigation.goBack()}
           />
         ),
