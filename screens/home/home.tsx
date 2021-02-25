@@ -12,7 +12,7 @@ export default function HomeScreen() {
     handleColumn,
     handleBuy,
     inCart,
-    loading,
+    isLoading,
     numColumns,
     keyGrid,
     data,
@@ -20,7 +20,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      {loading ? (
+      {isLoading ? (
         <Loading />
       ) : (
         <FlatList

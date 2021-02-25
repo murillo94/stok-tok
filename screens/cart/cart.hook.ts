@@ -7,14 +7,10 @@ import { formatCurrency } from 'utils';
 
 import { Product } from 'types/product';
 
-type ConfettiRef = MutableRefObject<{
-  start: () => void;
-}>;
 interface useCartScreen {
   navigateGoBack: () => void;
   handleRemove: (id: number) => void;
-  handleCompleteOrder: (ref: ConfettiRef) => void;
-  handleShowCompletedOrder: () => void;
+  handleCompleteOrder: () => void;
   isCompletedOrder: boolean;
   items: Product[];
   totalItems: number;
@@ -35,11 +31,7 @@ export default function useCartScreen(): useCartScreen {
     removeItem(id);
   }
 
-  function handleCompleteOrder(ref: ConfettiRef): void {
-    ref?.current?.start();
-  }
-
-  function handleShowCompletedOrder(): void {
+  function handleCompleteOrder(): void {
     setIsCompletedOrder(true);
     emptyCart();
   }
@@ -48,7 +40,6 @@ export default function useCartScreen(): useCartScreen {
     navigateGoBack,
     handleRemove,
     handleCompleteOrder,
-    handleShowCompletedOrder,
     isCompletedOrder,
     items,
     totalItems,

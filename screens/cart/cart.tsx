@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { View, FlatList, Text } from 'react-native';
-import ConfettiCannon from 'react-native-confetti-cannon';
 
 import { ProductCartItem, Button, Icon } from 'components';
 
@@ -13,13 +12,11 @@ export default function CartScreen() {
     navigateGoBack,
     handleRemove,
     handleCompleteOrder,
-    handleShowCompletedOrder,
     isCompletedOrder,
     items,
     totalItems,
     totalPrice,
   } = useCartScreen();
-  const confettiRef = useRef(null);
 
   return (
     <View style={styles.container}>
@@ -42,13 +39,23 @@ export default function CartScreen() {
                 <Text style={styles.title}>
                   Parabéns! Seu pedido foi finalizado
                 </Text>
-                <Button onPress={navigateGoBack}>VOLTAR PARA A LISTA</Button>
+                <Button
+                  accessibilityLabel="Voltar para a página anterior"
+                  onPress={navigateGoBack}
+                >
+                  VOLTAR PARA A LISTA
+                </Button>
               </>
             ) : (
               <>
                 <Icon name="shopping-bag" size={50} />
                 <Text style={styles.title}>Seu carrinho está vazio</Text>
-                <Button onPress={navigateGoBack}>COMEÇAR A COMPRAR</Button>
+                <Button
+                  accessibilityLabel="Começar a comprar agora"
+                  onPress={navigateGoBack}
+                >
+                  COMEÇAR A COMPRAR
+                </Button>
               </>
             )}
           </View>
@@ -64,25 +71,13 @@ export default function CartScreen() {
         <View style={styles.totalContainer}>
           <Text style={styles.total}>Total: {totalPrice}</Text>
           <Button
-            onPress={() => {
-              // @ts-ignore
-              handleCompleteOrder(confettiRef);
-            }}
+            accessibilityLabel="Finalizar pedido"
+            onPress={handleCompleteOrder}
           >
             FECHAR PEDIDO
           </Button>
         </View>
       )}
-      <ConfettiCannon
-        ref={confettiRef}
-        autoStart={false}
-        fadeOut={true}
-        count={200}
-        fallSpeed={1500}
-        explosionSpeed={300}
-        origin={{ x: -10, y: 0 }}
-        onAnimationEnd={handleShowCompletedOrder}
-      />
     </View>
   );
 }

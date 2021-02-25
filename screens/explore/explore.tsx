@@ -1,7 +1,7 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, View, Text } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 
-import { Image } from 'components';
+import { Image, TouchableOpacity } from 'components';
 
 import { getResponsiveWidth } from 'utils';
 
@@ -24,6 +24,7 @@ export default function ExploreScreen() {
         {CATEGORIES_FURNITURE.map((item) => (
           <TouchableOpacity
             key={item.name}
+            accessibilityLabel={`Navegar para a página de ${item.name}`}
             onPress={() => handleGoToCategorie(item)}
             style={styles.containerItem}
           >
@@ -49,6 +50,7 @@ export default function ExploreScreen() {
         {CATEGORIES_ACCESSORIES.map((item) => (
           <TouchableOpacity
             key={item.name}
+            accessibilityLabel={`Navegar para a página de ${item.name}`}
             onPress={() => handleGoToCategorie(item)}
             style={styles.containerItem}
           >

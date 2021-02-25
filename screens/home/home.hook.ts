@@ -13,7 +13,7 @@ interface useHomeScreen {
   handleColumn: () => void;
   handleBuy: (item: Product) => void;
   inCart: (id: number) => boolean;
-  loading: boolean;
+  isLoading: boolean;
   numColumns: number;
   keyGrid: number;
   data: Product[];
@@ -21,7 +21,7 @@ interface useHomeScreen {
 
 export default function useHomeScreen(): useHomeScreen {
   const [data, setData] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { handleColumn, numColumns, keyGrid } = useGrid();
   const { addItem, removeItem, inCart } = useCart();
   const { params } = useRoute();
@@ -38,11 +38,11 @@ export default function useHomeScreen(): useHomeScreen {
   }
 
   async function getData(): Promise<void> {
-    await setLoading(true);
+    await setIsLoading(true);
     const response = await request(url);
     const products = formatProducts(response);
     await setData(products);
-    await setLoading(false);
+    await setIsLoading(false);
   }
 
   useFocusEffect(
@@ -61,7 +61,7 @@ export default function useHomeScreen(): useHomeScreen {
     handleColumn,
     handleBuy,
     inCart,
-    loading,
+    isLoading,
     numColumns,
     keyGrid,
     data,
