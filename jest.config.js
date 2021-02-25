@@ -1,7 +1,10 @@
 module.exports = {
   preset: 'jest-expo',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+  setupFilesAfterEnv: [
+    './setup-test.ts',
+    '@testing-library/jest-native/extend-expect',
+  ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testMatch: ['<rootDir>/*/**/?(*.)+(spec|test).[jt]s?(x)'],
   transformIgnorePatterns: [

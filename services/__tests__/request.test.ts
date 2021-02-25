@@ -1,6 +1,7 @@
-jest.mock('node-fetch');
-
-import fetch from 'node-fetch';
+beforeEach(() => {
+  //@ts-ignore
+  fetch.resetMocks();
+});
 
 import { request, endpoints } from 'services';
 
@@ -18,7 +19,7 @@ describe('request', () => {
     fetchMockValue(JSON.stringify({ id: 10, name: 'Chaise' }));
 
     expect(fetch).toHaveBeenCalledWith(
-      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/bancos-e-cadeiras',
+      'https://gist.githubusercontent.com/murillo94/3bcd0404f3681263f3b47f456d81c0ed/raw/703adea15031a4654e62730ab71dc07c709ea0ea/moveis-bancos-e-cadeiras',
       {
         method: HTTPMethods.GET,
       }
@@ -34,7 +35,7 @@ describe('request', () => {
     );
 
     expect(fetch).toHaveBeenCalledWith(
-      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/bancos-e-cadeiras',
+      'https://gist.githubusercontent.com/murillo94/3bcd0404f3681263f3b47f456d81c0ed/raw/703adea15031a4654e62730ab71dc07c709ea0ea/moveis-bancos-e-cadeiras',
       {
         method: HTTPMethods.GET,
       }
@@ -51,7 +52,7 @@ describe('request', () => {
     );
 
     expect(fetch).toHaveBeenCalledWith(
-      'https://www.tokstok.com.br/api/catalog_system/pub/products/search/moveis/bancos-e-cadeiras',
+      'https://gist.githubusercontent.com/murillo94/3bcd0404f3681263f3b47f456d81c0ed/raw/703adea15031a4654e62730ab71dc07c709ea0ea/moveis-bancos-e-cadeiras',
       {
         method: HTTPMethods.GET,
       }

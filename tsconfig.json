@@ -17,6 +17,7 @@
     "strict": true,
     "target": "es2017",
     "module": "ESNext",
+    "typeRoots": ["./types", "node_modules/@types"],
     "paths": {
       "@services/*": ["./services/*"],
       "@hooks/*": ["./hooks/*"],

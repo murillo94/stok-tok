@@ -1,6 +1,4 @@
-import fetch from 'node-fetch';
-
-import Config from 'config/env';
+import { API_BASE } from '@env';
 
 import { HTTPMethods } from 'types/request';
 
@@ -12,7 +10,7 @@ export async function request<T>(
   method?: HTTPMethods
 ): Promise<T | { message: Error }> {
   try {
-    const response = await fetch(`${Config.API_HOST}${endpoint}`, {
+    const response = await fetch(`${API_BASE}${endpoint}`, {
       method: method ?? HTTPMethods.GET,
     });
     const data = await response.json();
