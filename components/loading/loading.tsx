@@ -5,7 +5,7 @@ import {
   ActivityIndicatorProps,
 } from 'react-native';
 
-import colors from 'constants/colors';
+import { colors } from 'constant';
 
 export function Loading({
   size = 50,

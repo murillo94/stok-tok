@@ -1,7 +1,7 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons';
 
-import colors from 'constants/colors';
+import { colors } from 'constant';
 
 import { IconName } from 'types/icon';
 

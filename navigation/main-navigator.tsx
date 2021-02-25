@@ -10,8 +10,8 @@ import ExploreScreen from 'screens/explore';
 
 import { useCart } from 'hooks';
 
-import colors from 'constants/colors';
-import header from 'constants/header';
+import { colors } from 'constant';
+import { header } from 'constant';
 
 import { Navigation } from 'types/navigation';
 

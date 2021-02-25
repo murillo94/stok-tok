@@ -26,7 +26,8 @@
       "@components/*": ["./components/*"],
       "@assets/*": ["./assets/*"],
       "@types/*": ["./types/*"],
-      "@config/*": ["./config/*"]
+      "@config/*": ["./config/*"],
+      "@constant/*": ["./constant/*"]
     }
   }
 }

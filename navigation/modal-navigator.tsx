@@ -6,8 +6,8 @@ import { IconButton } from 'components';
 
 import CartScreen from 'screens/cart';
 
-import colors from 'constants/colors';
-import header from 'constants/header';
+import { colors } from 'constant';
+import { header } from 'constant';
 
 import { Navigation } from 'types/navigation';
 const ModalStack = createStackNavigator<Navigation.ModalRouterStackParamList>();

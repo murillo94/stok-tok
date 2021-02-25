@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 
 import { TouchableOpacity } from 'components';
 
-import colors from 'constants/colors';
+import { colors } from 'constant';
 
 import styles from './styles';
 

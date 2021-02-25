@@ -1,6 +1,6 @@
-import colors from 'constants/colors';
+import { colors } from 'constant';
 
-export default {
+export const header = {
   style: {
     headerTintColor: colors.black,
     headerRightContainerStyle: { marginRight: 15 },

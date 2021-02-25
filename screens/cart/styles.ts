@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import colors from 'constants/colors';
+import { colors } from 'constant';
 
 import { getResponsiveFontSize } from 'utils';
 

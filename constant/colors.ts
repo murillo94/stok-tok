@@ -1,6 +1,6 @@
 const tintColorLight = '#009845';
 
-export default {
+export const colors = {
   black: '#414141',
   white: '#ffffff',
   gray: '#d0d0d0',

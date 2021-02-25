@@ -5,7 +5,7 @@ import { Image, IconButton } from 'components';
 
 import { getResponsiveWidth } from 'utils';
 
-import colors from 'constants/colors';
+import { colors } from 'constant';
 
 import { Product } from 'types/product';
 

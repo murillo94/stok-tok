@@ -4,7 +4,7 @@ import { render } from '@testing-library/react-native';
 
 import { Loading } from 'components';
 
-import colors from 'constants/colors';
+import { colors } from 'constant';
 
 describe('loading', () => {
   test('should return default values to iOS', () => {

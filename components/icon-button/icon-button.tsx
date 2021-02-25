@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import { Icon, TouchableOpacity } from 'components';
 
-import colors from 'constants/colors';
+import { colors } from 'constant';
 
 import { IconName } from 'types/icon';
 
