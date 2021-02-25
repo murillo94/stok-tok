@@ -32,7 +32,7 @@ O app Stok Tok foi construído para funcionar com iOS, Android, Web e PWA. Ele u
 
 Você pode baixar o aplicativo em [Expo app](https://expo.io/@murillo94/stok-tok) ou escanear o código QR abaixo para abrir o projeto no Android e iOS se você já tiver o aplicativo da Expo Go:
 
-<img alt="Stok Tok" src="./resources/qrcode.png" height="150" width="150" />
+<img alt="Stok Tok QR Code" src="./resources/qrcode.png" height="150" width="150" />
 
 ## Testing on your web
 
@@ -76,7 +76,7 @@ A implantação da web funciona a partir [destes passos](https://docs.expo.io/di
 
 ### iOS and Android
 
-O deploy do aplicativo é executado no CI e os comandos são armazenados em um arquivo `yaml`, verifique [aqui](./.github/ workflows/publish.yml)
+O deploy do aplicativo é executado no CI e os comandos são armazenados em um arquivo `yaml`, verifique[aqui](./.github/workflows/publish.yml)
 
 ## License
 
