@@ -13,20 +13,44 @@ Stok Tok. A maneira mais rápida e fácil de encontrar móveis no seu celular. E
 
 ![Stok Tok](./resources/demo.png)
 
-## Architecture
+## Modelagem da solução
 
 O app Stok Tok foi construído para funcionar com iOS, Android, Web e PWA. Ele usa [Expo](https://expo.io/) como uma biblioteca central para construir e distribuir para todas as plataformas.
 
-### Libs
+### Tecnologias
+
+As seguintes tecnologias são usadas nesse projeto:
+
+#### Front End
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [react-navigation](https://github.com/react-navigation/react-navigation)
 - [react-native-web](https://github.com/necolas/react-native-web)
 - [react-native-responsive-dimensions](https://github.com/react-native-toolkit/react-native-responsive-dimensions#readme)
 
-### APIs
+#### APIs
 
 - [Tok&Stok](https://www.tokstok.com.br/)
+
+#### Testes
+
+A aplicação tem três tipos de testes: Unidade, Integração e End-to-end. Todos os testes estão dentro do seu contexto na pasta `__tests__`.
+
+#### Deploy
+
+O Expo oferece formas simples de construir e implantar seu aplicativo com comandos individuais:
+
+##### Web
+
+A implantação da web funciona a partir [destes passos](https://docs.expo.io/distribution/publishing-websites/#vercel) e o deploy ocorre localmente usando [Vercel](http://vercel.com/).
+
+##### iOS e Android
+
+O deploy do aplicativo é executado no CI e os comandos são armazenados em um arquivo `yaml`, verifique [aqui](./.github/workflows/publish.yml)
+
+#### Acessibilidade
+
+A aplicação foi desenhada para ser totalmente acessível aos usuários, a navegação pela aplicação pode ser feita totalmente através de leitores de tela do celular.
 
 ## Testando versão de produção no celular
 
@@ -38,7 +62,7 @@ Você pode baixar o aplicativo em [Expo app](https://expo.io/@murillo94/stok-tok
 
 Você pode clicar [aqui](https://stok-tok.vercel.app/) para verificar o app funcionando na web. Se você quiser usar o aplicativo como PWA, vá até o navegador de configurações em seu celular e faça o download.
 
-## Rodando local
+## Usando local
 
 Como outros projetos, você precisará de alguns requisitos para executar:
 
@@ -59,24 +83,16 @@ Agora, você pode escolher um comando para executar o projeto:
 - `yarn android` para rodar no simulador Android
 - `yarn web` para rodar no navegador web
 
-## Fazendo deploy
-
-O Expo oferece formas simples de construir e implantar seu aplicativo com comandos individuais:
-
-### Web
-
-A implantação da web funciona a partir [destes passos](https://docs.expo.io/distribution/publishing-websites/#vercel) e o deploy ocorre localmente usando [Vercel](http://vercel.com/).
-
-### iOS e Android
-
-O deploy do aplicativo é executado no CI e os comandos são armazenados em um arquivo `yaml`, verifique [aqui](./.github/workflows/publish.yml)
-
 ## Contribuindo
 
 Qualquer relatório de bug, solicitação de recursos e outras contribuições são mais do que bem-vindos! <br/>
 Sempre que possível, por favor, faça um pedido com a implementação em vez de apenas solicitá-la.
 
 Se a `feature` for grande, abra um assunto primeiro para discussão.
+
+1. Para rodar localmente, siga os passos da [seção "Usando localmente"](#usando-local)
+
+2. Para subir um PR, aprenda os passos do [guia de contribuição](./CONTRIBUTING.md).
 
 ## License
 
