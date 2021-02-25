@@ -9,6 +9,7 @@ import MainNavigator from './main-navigator';
 import ModalNavigator from './modal-navigator';
 
 import { Navigation } from 'types/navigation';
+import { Platform } from 'react-native';
 
 export default function NavigationWrapper() {
   return (
@@ -24,13 +25,16 @@ type MainNavigatorStack = Navigation.RootRouterStackParamList &
 const RootStack = createStackNavigator<MainNavigatorStack>();
 
 function RootNavigator() {
+  const ModalPresentationIOS =
+    Platform.OS === 'ios' ? TransitionPresets.ModalPresentationIOS : {};
+
   return (
     <RootStack.Navigator
       screenOptions={{
         headerShown: false,
         gestureEnabled: true,
         cardOverlayEnabled: true,
-        ...TransitionPresets.ModalPresentationIOS,
+        ...ModalPresentationIOS,
       }}
       mode="modal"
     >
