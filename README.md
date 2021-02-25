@@ -76,7 +76,7 @@ A implantação da web funciona a partir [destes passos](https://docs.expo.io/di
 
 ### iOS and Android
 
-O deploy do aplicativo é executado no CI e os comandos são armazenados em um arquivo `yaml`, verifique[aqui](./.github/workflows/publish.yml)
+O deploy do aplicativo é executado no CI e os comandos são armazenados em um arquivo `yaml`, verifique [aqui](./.github/workflows/publish.yml)
 
 ## License
 
