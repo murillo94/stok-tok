@@ -6,3 +6,4 @@ export * from './product-list-item';
 export * from './product-list-header';
 export * from './product-cart-item';
 export * from './loading';
+export * from './touchable-opacity';

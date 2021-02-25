@@ -1,22 +1,28 @@
 import React from 'react';
-import { TouchableOpacity, Text, TouchableOpacityProps } from 'react-native';
+import { Text } from 'react-native';
+
+import { TouchableOpacity } from 'components';
 
 import colors from 'constants/colors';
 
 import styles from './styles';
 
-type ButtonProps = TouchableOpacityProps & {
+type ButtonProps = {
   children: string;
+  accessibilityLabel: string;
   backgroundColor?: string;
+  onPress: () => void;
 };
 
 export function Button({
   children,
-  onPress,
+  accessibilityLabel = '',
   backgroundColor = colors.tint,
+  onPress,
 }: ButtonProps) {
   return (
     <TouchableOpacity
+      accessibilityLabel={accessibilityLabel}
       onPress={onPress}
       style={[{ backgroundColor }, styles.container]}
     >

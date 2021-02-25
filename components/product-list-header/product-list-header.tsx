@@ -21,6 +21,7 @@ export function ProductListHeader({
       <Text style={styles.title}>{length} produtos</Text>
       <IconButton
         name={numColumns === 1 ? 'server' : 'columns'}
+        accessibilityLabel="Alterar visualização da lista"
         onPress={onPress}
       />
     </View>

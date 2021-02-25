@@ -13,7 +13,7 @@ import styles from './styles';
 
 type ProductProps = Product & {
   isInCart: boolean;
-  numColumns: number;
+  numColumns?: number;
   onPressBuy: () => void;
 };
 
@@ -28,17 +28,14 @@ export function ProductListItem({
   imageUrl,
   onPressBuy,
 }: ProductProps) {
-  const backgroundColorButton: string = isInCart
-    ? colors.red
-    : colors.tint;
+  const backgroundColorButton: string = isInCart ? colors.red : colors.tint;
 
   return (
     <>
       {numColumns === 1 ? (
         <View style={styles.containerSingleItem}>
           <Image
-            accessibilityRole="imagebutton"
-            accessibilityLabel={`${name} image`}
+            accessibilityLabel={name}
             source={{ uri: imageUrl }}
             width={WIDTH}
             height={HEIGHT}
@@ -51,8 +48,11 @@ export function ProductListItem({
           </Text>
           <View style={styles.containerButton}>
             <Button
-              onPress={onPressBuy}
+              accessibilityLabel={
+                isInCart ? `Remover item ${name}` : `Comprar item ${name}`
+              }
               backgroundColor={backgroundColorButton}
+              onPress={onPressBuy}
             >
               {isInCart ? 'REMOVER' : 'COMPRAR'}
             </Button>
@@ -61,8 +61,7 @@ export function ProductListItem({
       ) : (
         <View style={styles.containerParentItem}>
           <Image
-            accessibilityRole="imagebutton"
-            accessibilityLabel={`${name} image`}
+            accessibilityLabel={name}
             source={{ uri: imageUrl }}
             width={WIDTH}
             height={HEIGHT}
@@ -73,7 +72,13 @@ export function ProductListItem({
           <Text numberOfLines={2} style={styles.price}>
             {priceBRL}
           </Text>
-          <Button onPress={onPressBuy} backgroundColor={backgroundColorButton}>
+          <Button
+            accessibilityLabel={
+              isInCart ? `Remover item ${name}` : `Comprar item ${name}`
+            }
+            backgroundColor={backgroundColorButton}
+            onPress={onPressBuy}
+          >
             {isInCart ? 'REMOVER' : 'COMPRAR'}
           </Button>
         </View>

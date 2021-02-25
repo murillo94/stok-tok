@@ -28,8 +28,8 @@ export function ProductCartItem({
   return (
     <View style={styles.container}>
       <Image
-        accessibilityRole="imagebutton"
-        accessibilityLabel={`${name} image`}
+        accessibilityRole="image"
+        accessibilityLabel={name}
         source={{ uri: imageUrl }}
         width={WIDTH}
         height={HEIGHT}
@@ -49,6 +49,7 @@ export function ProductCartItem({
         <IconButton
           name="x"
           color={colors.tabIconDefault}
+          accessibilityLabel={`Remover item ${name}`}
           onPress={onPressRemove}
         />
       </View>
