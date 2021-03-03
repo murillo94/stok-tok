@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 
 import useExploreScreen from '../explore.hook';
 
@@ -16,10 +16,12 @@ describe('explore hook', () => {
   it('should navigate to categorie', () => {
     const { result } = renderHook(() => useExploreScreen());
 
-    result.current.handleGoToCategorie({
-      name: 'Sofá',
-      url: 'test.com',
-      imageUrl: 'test.com.br',
+    act(() => {
+      result.current.handleGoToCategorie({
+        name: 'Sofá',
+        url: 'test.com',
+        imageUrl: 'test.com.br',
+      });
     });
 
     expect(mockNavigation.navigate).toBeCalledWith(

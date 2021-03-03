@@ -4,8 +4,14 @@ import { render } from '@testing-library/react-native';
 import HomeScreen from '../home';
 import * as useHomeScreen from '../home.hook';
 
+const mockRouteParams = {
+  params: {
+    url: 'test-url',
+  },
+};
+
 jest.mock('@react-navigation/native', () => ({
-  useRoute: () => ({ params: {} }),
+  useRoute: () => mockRouteParams,
   useFocusEffect: (callback: () => void) => callback(),
 }));
 

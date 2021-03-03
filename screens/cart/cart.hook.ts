@@ -1,4 +1,4 @@
-import { MutableRefObject, useState } from 'react';
+import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import { useCart } from 'hooks';
@@ -8,13 +8,13 @@ import { formatCurrency } from 'utils';
 import { Product } from 'types/product';
 
 interface useCartScreen {
-  navigateGoBack: () => void;
-  handleRemove: (id: number) => void;
-  handleCompleteOrder: () => void;
   isCompletedOrder: boolean;
   items: Product[];
   totalItems: number;
   totalPrice: string;
+  navigateGoBack: () => void;
+  handleRemove: (id: number) => void;
+  handleCompleteOrder: () => void;
 }
 
 export default function useCartScreen(): useCartScreen {
@@ -37,12 +37,12 @@ export default function useCartScreen(): useCartScreen {
   }
 
   return {
-    navigateGoBack,
-    handleRemove,
-    handleCompleteOrder,
     isCompletedOrder,
     items,
     totalItems,
     totalPrice,
+    navigateGoBack,
+    handleRemove,
+    handleCompleteOrder,
   };
 }

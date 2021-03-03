@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useLocalStorage } from 'hooks';
 
 describe('use-local-storage', () => {
-  afterEach(() => AsyncStorage.clear());
+  beforeEach(() => AsyncStorage.clear());
 
   test('should set and get value storage', async () => {
     const { result } = renderHook(() => useLocalStorage('@example', '10'));

@@ -10,20 +10,20 @@ import { formatProducts } from 'utils';
 import { Product } from 'types/product';
 
 interface useHomeScreen {
-  handleColumn: () => void;
-  handleBuy: (item: Product) => void;
-  inCart: (id: number) => boolean;
   isLoading: boolean;
   numColumns: number;
   keyGrid: number;
   data: Product[];
+  handleColumn: () => void;
+  handleBuy: (item: Product) => void;
+  inCart: (id: number) => boolean;
 }
 
 export default function useHomeScreen(): useHomeScreen {
   const [data, setData] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { handleColumn, numColumns, keyGrid } = useGrid();
-  const { addItem, removeItem, inCart } = useCart();
+  const { addItem, removeItem, inCart, items } = useCart();
   const { params } = useRoute();
 
   // @ts-ignore
@@ -58,12 +58,12 @@ export default function useHomeScreen(): useHomeScreen {
   );
 
   return {
-    handleColumn,
-    handleBuy,
-    inCart,
     isLoading,
     numColumns,
     keyGrid,
     data,
+    handleColumn,
+    handleBuy,
+    inCart,
   };
 }

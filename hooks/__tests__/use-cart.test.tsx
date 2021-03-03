@@ -10,22 +10,22 @@ import {
 } from 'hooks';
 
 describe('use-cart', () => {
-  afterEach(() => AsyncStorage.clear());
+  beforeEach(() => AsyncStorage.clear());
 
   describe('createCartIdentifier', () => {
-    it('returns a 12 character string by default', () => {
+    it('should return a 12 character string by default', () => {
       const id = createCartIdentifier();
 
       expect(id).toHaveLength(12);
     });
 
-    it('returns a custom length string', () => {
+    it('should return a custom length string', () => {
       const id = createCartIdentifier(20);
 
       expect(id).toHaveLength(20);
     });
 
-    it('created id is unique', () => {
+    it('should create unique id', () => {
       const id = createCartIdentifier();
       const id2 = createCartIdentifier();
 
@@ -34,7 +34,7 @@ describe('use-cart', () => {
   });
 
   describe('CartProvider', () => {
-    it('uses ID for cart if provided', () => {
+    it('should use ID for cart if provided', () => {
       const wrapper = ({ children }: any) => (
         <CartProvider id={1}>{children}</CartProvider>
       );
@@ -49,7 +49,7 @@ describe('use-cart', () => {
       expect(result.current.id).toEqual(1);
     });
 
-    it('creates an ID for cart if non provided', () => {
+    it('should create an ID for cart if non provided', () => {
       const { result } = renderHook(() => useCart(), {
         wrapper: CartProvider,
       });
@@ -60,7 +60,7 @@ describe('use-cart', () => {
       expect(result.current.id).toHaveLength(12);
     });
 
-    it('initial cart meta state is set', () => {
+    it('should return initial cart meta state as set', () => {
       const { result } = renderHook(() => useCart(), {
         wrapper: CartProvider,
       });
@@ -73,7 +73,7 @@ describe('use-cart', () => {
       expect(result.current.isEmpty).toBe(true);
     });
 
-    it('sets cart metadata', () => {
+    it('should set cart metadata', () => {
       const metadata = {
         coupon: 'abc123',
         notes: 'Leave on door step',
@@ -92,7 +92,7 @@ describe('use-cart', () => {
   });
 
   describe('addItem', () => {
-    it('adds item to the cart', () => {
+    it('should add item to the cart', () => {
       const { result } = renderHook(() => useCart(), {
         wrapper: CartProvider,
       });
@@ -106,7 +106,7 @@ describe('use-cart', () => {
       expect(result.current.totalUniqueItems).toBe(1);
     });
 
-    it('increments existing item quantity in the cart', () => {
+    it('should increment existing item quantity in the cart', () => {
       const { result } = renderHook(() => useCart(), {
         wrapper: CartProvider,
       });
@@ -122,7 +122,7 @@ describe('use-cart', () => {
       expect(result.current.totalUniqueItems).toBe(1);
     });
 
-    it('updates cart meta state', () => {
+    it('should update cart meta state', () => {
       const { result } = renderHook(() => useCart(), {
         wrapper: CartProvider,
       });
@@ -154,7 +154,7 @@ describe('use-cart', () => {
       expect(result.current.isEmpty).toBe(false);
     });
 
-    it('triggers onItemAdd when cart empty', () => {
+    it('should call onItemAdd when cart empty', () => {
       let called = false;
 
       const wrapper = ({ children }: any) => (
@@ -174,7 +174,7 @@ describe('use-cart', () => {
       expect(called).toBe(true);
     });
 
-    it('triggers onItemUpdate when cart has existing item', () => {
+    it('should call onItemUpdate when cart has existing item', () => {
       let called = false;
 
       const item = { id: 1, price: 1000 };
@@ -199,7 +199,7 @@ describe('use-cart', () => {
   });
 
   describe('updateItem', () => {
-    it('updates cart meta state', () => {
+    it('should update cart meta state', () => {
       const items = [{ id: 1, price: 1000 }];
       const [item] = items;
 
@@ -223,7 +223,7 @@ describe('use-cart', () => {
       expect(result.current.isEmpty).toBe(false);
     });
 
-    it('triggers onItemUpdate when updating existing item', () => {
+    it('should call onItemUpdate when updating existing item', () => {
       let called = false;
 
       const item = { id: 1, price: 1000 };
@@ -248,7 +248,7 @@ describe('use-cart', () => {
   });
 
   describe('updateItemQuantity', () => {
-    it('updates cart meta state', () => {
+    it('should update cart meta state', () => {
       const items = [{ id: 1, price: 1000 }];
       const [item] = items;
 
@@ -268,7 +268,7 @@ describe('use-cart', () => {
       expect(result.current.isEmpty).toBe(false);
     });
 
-    it('triggers onItemUpdate when setting quantity above 0', () => {
+    it('should call onItemUpdate when setting quantity above 0', () => {
       let called = false;
 
       const item = { id: 1, price: 1000 };
@@ -292,7 +292,7 @@ describe('use-cart', () => {
       expect(called).toBe(true);
     });
 
-    it('triggers onItemRemove when setting quantity to 0', () => {
+    it('should call onItemRemove when setting quantity to 0', () => {
       let called = false;
 
       const item = { id: 1, price: 1000 };
@@ -316,7 +316,7 @@ describe('use-cart', () => {
       expect(called).toBe(true);
     });
 
-    it('recalculates itemTotal when incrementing item quantity', () => {
+    it('should recalculate itemTotal when incrementing item quantity', () => {
       const item = { id: 1, price: 1000 };
 
       const { result } = renderHook(() => useCart(), {
@@ -332,7 +332,7 @@ describe('use-cart', () => {
       );
     });
 
-    it('recalculates itemTotal when decrementing item quantity', () => {
+    it('should recalculate itemTotal when decrementing item quantity', () => {
       const item = { id: 1, price: 1000, quantity: 2 };
 
       const { result } = renderHook(() => useCart(), {
@@ -350,7 +350,7 @@ describe('use-cart', () => {
   });
 
   describe('removeItem', () => {
-    it('updates cart meta state', () => {
+    it('should update cart meta state', () => {
       const items = [{ id: 1, price: 1000 }];
       const [item] = items;
 
@@ -370,7 +370,7 @@ describe('use-cart', () => {
       expect(result.current.isEmpty).toBe(true);
     });
 
-    it('triggers onItemRemove when removing item', () => {
+    it('should call onItemRemove when removing item', () => {
       let called = false;
 
       const item = { id: 1, price: 1000 };
@@ -395,7 +395,7 @@ describe('use-cart', () => {
   });
 
   describe('emptyCart', () => {
-    it('updates cart meta state', () => {
+    it('should update cart meta state', () => {
       const items = [{ id: 1, price: 1000 }];
 
       const wrapper = ({ children }: any) => (
@@ -416,7 +416,7 @@ describe('use-cart', () => {
   });
 
   describe('updateCartMetadata', () => {
-    it('updates cart metadata', () => {
+    it('should update cart metadata', () => {
       const { result } = renderHook(() => useCart(), {
         wrapper: CartProvider,
       });
@@ -432,7 +432,7 @@ describe('use-cart', () => {
       expect(result.current.metadata).toEqual(metadata);
     });
 
-    it('merge new metadata with existing', () => {
+    it('should merge new metadata with old metadata', () => {
       const initialMetadata = {
         coupon: 'abc123',
       };
