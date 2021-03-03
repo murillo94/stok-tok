@@ -4,7 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useCachedResources, CartProvider } from 'hooks';
 
-import Navigation from './navigation';
+import RootNavigator from './navigation/root-navigator';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -15,7 +15,7 @@ export default function App() {
     return (
       <SafeAreaProvider>
         <CartProvider>
-          <Navigation />
+          <RootNavigator />
           <StatusBar style="dark" />
         </CartProvider>
       </SafeAreaProvider>
