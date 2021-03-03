@@ -242,48 +242,4 @@ describe('use-cart', () => {
       expect(result.current.isEmpty).toBe(true);
     });
   });
-
-  describe('updateCartMetadata', () => {
-    it('should update cart metadata', () => {
-      const { result } = renderHook(() => useCart(), {
-        wrapper: CartProvider,
-      });
-
-      const metadata = {
-        coupon: 'abc123',
-        notes: 'Leave on door step',
-      };
-
-      // @ts-ignore
-      act(() => result.current.updateCartMetadata(metadata));
-
-      expect(result.current.metadata).toEqual(metadata);
-    });
-
-    it('should merge new metadata with old metadata', () => {
-      const initialMetadata = {
-        coupon: 'abc123',
-      };
-
-      const wrapper = ({ children }: any) => (
-        <CartProvider metadata={initialMetadata}>{children}</CartProvider>
-      );
-
-      const { result } = renderHook(() => useCart(), {
-        wrapper,
-      });
-
-      const metadata = {
-        notes: 'Leave on door step',
-      };
-
-      // @ts-ignore
-      act(() => result.current.updateCartMetadata(metadata));
-
-      expect(result.current.metadata).toEqual({
-        ...initialMetadata,
-        ...metadata,
-      });
-    });
-  });
 });
