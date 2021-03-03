@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
-import { useLocalStorage } from 'hooks';
+import { useLocalStorage } from 'hooks/use-local-storage';
 
 export interface Item {
   id: number;

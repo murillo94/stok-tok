@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 
-import { ProductCartItem } from 'components';
+import { ProductCartItem } from 'components/product-cart-item';
 
 jest.mock('@react-navigation/native', () => ({
   useNavigation: () => jest.fn(),

@@ -1,9 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 
-import { IconButton } from 'components';
-
-import { colors } from 'constant';
+import { IconButton } from 'components/icon-button';
 
 describe('touchable-opacity', () => {
   test('should call function on press', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 
-import { TouchableOpacity } from 'components';
+import { TouchableOpacity } from 'components/touchable-opacity';
 
 describe('touchable-opacity', () => {
   test('should call function on press', () => {

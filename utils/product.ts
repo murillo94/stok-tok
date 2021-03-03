@@ -1,6 +1,6 @@
 import currency from 'currency.js';
 
-import { capitalize } from 'utils';
+import { capitalize } from 'utils/string';
 
 import { Product } from 'types/product';
 

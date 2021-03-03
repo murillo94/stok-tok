@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { render } from '@testing-library/react-native';
 
-import { Loading } from 'components';
+import { Loading } from 'components/loading';
 
 import { colors } from 'constant';
 

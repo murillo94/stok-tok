@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import { Image } from 'components';
+import { Image } from 'components/image';
 
 describe('image', () => {
   test('should return default values', () => {

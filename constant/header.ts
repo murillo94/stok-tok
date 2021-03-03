@@ -1,4 +1,4 @@
-import { colors } from 'constant';
+import { colors } from 'constant/colors';
 
 export const header = {
   style: {

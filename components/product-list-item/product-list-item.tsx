@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import { Image, Button } from 'components';
+import { Image } from 'components/image';
+import { Button } from 'components/button';
 
 import { getResponsiveWidth } from 'utils';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 
-import { ProductListHeader } from 'components';
+import { ProductListHeader } from 'components/product-list-header';
 
 jest.mock('@react-navigation/native', () => ({
   useNavigation: () => jest.fn(),
