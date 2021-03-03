@@ -5,7 +5,7 @@ function ImageCustom({
   accessibilityRole = 'image',
   accessibilityLabel = '',
   resizeMode = 'cover',
-  source = {},
+  source,
   width = 0,
   height = 0,
   style = {},

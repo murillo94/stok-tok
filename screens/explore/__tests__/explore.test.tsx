@@ -1,9 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 
 import ExploreScreen from '../explore';
+import * as useExploreScreen from '../explore.hook';
 
 import { CATEGORIES_ACCESSORIES, CATEGORIES_FURNITURE } from '../utils';
+
+const mockHandleGoToCategorie = jest.fn();
 
 jest.mock('@react-navigation/native', () => ({
   useNavigation: () => jest.fn(),
@@ -12,6 +15,9 @@ jest.mock('@react-navigation/native', () => ({
 describe('explore screen', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.spyOn(useExploreScreen, 'default').mockImplementation(() => ({
+      handleGoToCategorie: mockHandleGoToCategorie,
+    }));
   });
 
   afterAll(() => {
@@ -42,10 +48,12 @@ describe('explore screen', () => {
 
     expect(getByText('Cadeiras')).toBeDefined();
     expect(getByA11yLabel('Cadeiras')).toBeDefined();
-    expect(getByA11yLabel('Navegar para a página de Cadeiras')).toBeDefined();
     expect(chairImage.props.source).toStrictEqual({
       uri: CATEGORIES_FURNITURE[1].imageUrl,
     });
+
+    fireEvent.press(getByA11yLabel('Navegar para a página de Cadeiras'));
+    expect(mockHandleGoToCategorie).toBeCalled();
 
     const cabinetsImage = getAllByA11yRole('imagebutton')[2];
 
@@ -84,10 +92,12 @@ describe('explore screen', () => {
 
     expect(getByText('Cama')).toBeDefined();
     expect(getByA11yLabel('Cama')).toBeDefined();
-    expect(getByA11yLabel('Navegar para a página de Cama')).toBeDefined();
     expect(bedImage.props.source).toStrictEqual({
       uri: CATEGORIES_ACCESSORIES[0].imageUrl,
     });
+
+    fireEvent.press(getByA11yLabel('Navegar para a página de Cama'));
+    expect(mockHandleGoToCategorie).toBeCalled();
 
     const tableImage = getAllByA11yRole('imagebutton')[6];
 

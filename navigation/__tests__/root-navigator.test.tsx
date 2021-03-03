@@ -24,7 +24,7 @@ describe('root-navigator', () => {
 
     const { getAllByA11yLabel } = render(component);
     const toClick = await getAllByA11yLabel('Sacola de compras')[0];
-    fireEvent(toClick, 'press');
+    fireEvent.press(toClick);
 
     const buy = await getAllByA11yLabel('Sacola de compras')[0];
 
@@ -36,7 +36,7 @@ describe('root-navigator', () => {
 
     const { getByText, getAllByText, getAllByA11yLabel } = render(component);
     const toClick = await getByText('Explorar');
-    fireEvent(toClick, 'press');
+    fireEvent.press(toClick);
 
     const newHeader = await getAllByText('Explorar')[0];
     const tab = await getAllByText('Explorar')[1];
@@ -52,7 +52,7 @@ describe('root-navigator', () => {
 
     const { getAllByText, getAllByA11yLabel } = render(component);
     const toClick = await getAllByA11yLabel('Sacola de compras')[0];
-    fireEvent(toClick, 'press');
+    fireEvent.press(toClick);
 
     const newHeader = await getAllByText('Explorar')[0];
     const buy = await getAllByA11yLabel('Sacola de compras')[0];

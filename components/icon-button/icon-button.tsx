@@ -12,16 +12,16 @@ import styles from './styles';
 
 type IconButtonProps = {
   name: IconName;
-  color?: string;
   accessibilityLabel: string;
+  color?: string;
   hasBadge?: boolean;
   onPress: () => void;
 };
 
 export function IconButton({
   name,
+  accessibilityLabel,
   color = colors.black,
-  accessibilityLabel = '',
   hasBadge,
   onPress,
 }: IconButtonProps) {

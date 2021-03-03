@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 
 import HomeScreen from '../home';
 import * as useHomeScreen from '../home.hook';
@@ -9,6 +9,7 @@ const mockRouteParams = {
     url: 'test-url',
   },
 };
+const mockHandleBuy = jest.fn();
 
 jest.mock('@react-navigation/native', () => ({
   useRoute: () => mockRouteParams,
@@ -27,7 +28,7 @@ describe('home screen', () => {
   it('should return default text when list is empty', () => {
     jest.spyOn(useHomeScreen, 'default').mockImplementation(() => ({
       handleColumn: jest.fn(),
-      handleBuy: jest.fn(),
+      handleBuy: mockHandleBuy,
       inCart: jest.fn(),
       isLoading: false,
       numColumns: 1,
@@ -43,7 +44,7 @@ describe('home screen', () => {
   it('should return item when cart is with items', () => {
     jest.spyOn(useHomeScreen, 'default').mockImplementation(() => ({
       handleColumn: jest.fn(),
-      handleBuy: jest.fn(),
+      handleBuy: mockHandleBuy,
       inCart: jest.fn(),
       isLoading: false,
       numColumns: 1,
@@ -70,7 +71,10 @@ describe('home screen', () => {
     expect(getByA11yLabel('Sofá')).toBeDefined();
     expect(getByText('Sofá')).toBeDefined();
     expect(getByText('R$ 100,00')).toBeDefined();
-    expect(getByA11yLabel('Comprar item Sofá')).toBeDefined();
     expect(getByText('COMPRAR')).toBeDefined();
+
+    fireEvent.press(getByA11yLabel('Comprar item Sofá'));
+
+    expect(mockHandleBuy).toBeCalled();
   });
 });

@@ -16,7 +16,7 @@ type ButtonProps = {
 
 export function Button({
   children,
-  accessibilityLabel = '',
+  accessibilityLabel,
   backgroundColor = colors.tint,
   onPress,
 }: ButtonProps) {

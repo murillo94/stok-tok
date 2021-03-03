@@ -23,7 +23,7 @@ export default function ModalNavigator() {
             name="x"
             color={colors.black}
             accessibilityLabel="Fechar"
-            onPress={() => navigation.goBack()}
+            onPress={navigation.goBack}
           />
         ),
         ...header.style,

@@ -15,9 +15,7 @@ export function useLocalStorage(
       setStoredValue(valueToStore);
 
       await AsyncStorage.setItem(key, valueToStore);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }
 
   // @ts-ignore

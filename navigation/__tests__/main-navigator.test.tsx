@@ -33,7 +33,7 @@ describe('main-navigator', () => {
 
     const { getByText, getAllByText, getAllByA11yLabel } = render(component);
     const toClick = await getByText('Explorar');
-    fireEvent(toClick, 'press');
+    fireEvent.press(toClick);
 
     const newHeader = await getAllByText('Explorar')[0];
     const tab = await getAllByText('Explorar')[1];

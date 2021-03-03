@@ -173,56 +173,9 @@ describe('use-cart', () => {
 
       expect(called).toBe(true);
     });
-
-    it('should call onItemUpdate when cart has existing item', () => {
-      let called = false;
-
-      const item = { id: 1, price: 1000 };
-
-      const wrapper = ({ children }: any) => (
-        <CartProvider
-          defaultItems={[item]}
-          onItemUpdate={() => (called = true)}
-        >
-          {children}
-        </CartProvider>
-      );
-
-      const { result } = renderHook(() => useCart(), {
-        wrapper,
-      });
-
-      act(() => result.current.updateItem(item.id, { price: item.price }));
-
-      expect(called).toBe(true);
-    });
   });
 
   describe('updateItem', () => {
-    it('should update cart meta state', () => {
-      const items = [{ id: 1, price: 1000 }];
-      const [item] = items;
-
-      const wrapper = ({ children }: any) => (
-        <CartProvider defaultItems={items}>{children}</CartProvider>
-      );
-
-      const { result } = renderHook(() => useCart(), {
-        wrapper,
-      });
-
-      act(() =>
-        result.current.updateItem(item.id, {
-          quantity: 2,
-        })
-      );
-
-      expect(result.current.items).toHaveLength(1);
-      expect(result.current.totalItems).toBe(2);
-      expect(result.current.totalUniqueItems).toBe(1);
-      expect(result.current.isEmpty).toBe(false);
-    });
-
     it('should call onItemUpdate when updating existing item', () => {
       let called = false;
 
@@ -247,108 +200,6 @@ describe('use-cart', () => {
     });
   });
 
-  describe('updateItemQuantity', () => {
-    it('should update cart meta state', () => {
-      const items = [{ id: 1, price: 1000 }];
-      const [item] = items;
-
-      const wrapper = ({ children }: any) => (
-        <CartProvider defaultItems={items}>{children}</CartProvider>
-      );
-
-      const { result } = renderHook(() => useCart(), {
-        wrapper,
-      });
-
-      act(() => result.current.updateItemQuantity(item.id, 3));
-
-      expect(result.current.items).toHaveLength(1);
-      expect(result.current.totalItems).toBe(3);
-      expect(result.current.totalUniqueItems).toBe(1);
-      expect(result.current.isEmpty).toBe(false);
-    });
-
-    it('should call onItemUpdate when setting quantity above 0', () => {
-      let called = false;
-
-      const item = { id: 1, price: 1000 };
-
-      const wrapper = ({ children }: any) => (
-        <CartProvider
-          defaultItems={[item]}
-          onItemUpdate={() => (called = true)}
-        >
-          {children}
-        </CartProvider>
-      );
-
-      const { result } = renderHook(() => useCart(), {
-        wrapper,
-      });
-
-      act(() => result.current.updateItemQuantity(item.id, 2));
-
-      expect(result.current.items).toHaveLength(1);
-      expect(called).toBe(true);
-    });
-
-    it('should call onItemRemove when setting quantity to 0', () => {
-      let called = false;
-
-      const item = { id: 1, price: 1000 };
-
-      const wrapper = ({ children }: any) => (
-        <CartProvider
-          defaultItems={[item]}
-          onItemRemove={() => (called = true)}
-        >
-          {children}
-        </CartProvider>
-      );
-
-      const { result } = renderHook(() => useCart(), {
-        wrapper,
-      });
-
-      act(() => result.current.updateItemQuantity(item.id, 0));
-
-      expect(result.current.items).toHaveLength(0);
-      expect(called).toBe(true);
-    });
-
-    it('should recalculate itemTotal when incrementing item quantity', () => {
-      const item = { id: 1, price: 1000 };
-
-      const { result } = renderHook(() => useCart(), {
-        wrapper: CartProvider,
-      });
-
-      act(() => result.current.addItem(item));
-      act(() => result.current.updateItemQuantity(item.id, 2));
-
-      expect(result.current.items).toHaveLength(1);
-      expect(result.current.items).toContainEqual(
-        expect.objectContaining({ itemTotal: 2000, quantity: 2 })
-      );
-    });
-
-    it('should recalculate itemTotal when decrementing item quantity', () => {
-      const item = { id: 1, price: 1000, quantity: 2 };
-
-      const { result } = renderHook(() => useCart(), {
-        wrapper: CartProvider,
-      });
-
-      act(() => result.current.addItem(item));
-      act(() => result.current.updateItemQuantity(item.id, 1));
-
-      expect(result.current.items).toHaveLength(1);
-      expect(result.current.items).toContainEqual(
-        expect.objectContaining({ itemTotal: 1000, quantity: 1 })
-      );
-    });
-  });
-
   describe('removeItem', () => {
     it('should update cart meta state', () => {
       const items = [{ id: 1, price: 1000 }];
@@ -368,29 +219,6 @@ describe('use-cart', () => {
       expect(result.current.totalItems).toBe(0);
       expect(result.current.totalUniqueItems).toBe(0);
       expect(result.current.isEmpty).toBe(true);
-    });
-
-    it('should call onItemRemove when removing item', () => {
-      let called = false;
-
-      const item = { id: 1, price: 1000 };
-
-      const wrapper = ({ children }: any) => (
-        <CartProvider
-          defaultItems={[item]}
-          onItemRemove={() => (called = true)}
-        >
-          {children}
-        </CartProvider>
-      );
-
-      const { result } = renderHook(() => useCart(), {
-        wrapper,
-      });
-
-      act(() => result.current.updateItemQuantity(item.id, 0));
-
-      expect(called).toBe(true);
     });
   });
 

@@ -41,15 +41,12 @@ interface CartProvider {
 interface CartProviderState extends InitialState {
   addItem: (item: Item, quantity?: number) => void;
   removeItem: (id: Item['id']) => void;
-  updateItem: (id: Item['id'], payload: object) => void;
-  updateItemQuantity: (id: Item['id'], quantity: number) => void;
   emptyCart: () => void;
   getItem: (id: Item['id']) => any | undefined;
   inCart: (id: Item['id']) => boolean;
 }
 
 export type Actions =
-  | { type: 'SET_ITEMS'; payload: Item[] }
   | { type: 'ADD_ITEM'; payload: Item }
   | { type: 'REMOVE_ITEM'; id: Item['id'] }
   | {
@@ -57,8 +54,7 @@ export type Actions =
       id: Item['id'];
       payload: object;
     }
-  | { type: 'EMPTY_CART' }
-  | { type: 'UPDATE_CART_META'; payload: Metadata };
+  | { type: 'EMPTY_CART' };
 
 export const initialState: any = {
   items: [],
@@ -84,9 +80,6 @@ export const useCart = () => {
 
 function reducer(state: CartProviderState, action: Actions) {
   switch (action.type) {
-    case 'SET_ITEMS':
-      return generateCartState(state, action.payload);
-
     case 'ADD_ITEM': {
       const items = [...state.items, action.payload];
 
@@ -114,15 +107,6 @@ function reducer(state: CartProviderState, action: Actions) {
 
     case 'EMPTY_CART':
       return initialState;
-
-    case 'UPDATE_CART_META':
-      return {
-        ...state,
-        metadata: {
-          ...state.metadata,
-          ...action.payload,
-        },
-      };
 
     default:
       throw new Error('No action specified');
@@ -186,15 +170,6 @@ export const CartProvider = ({
     saveCart(JSON.stringify(state));
   }, [state, saveCart]);
 
-  const setItems = (items: Item[]) => {
-    dispatch({
-      type: 'SET_ITEMS',
-      payload: items,
-    });
-
-    onSetItems && onSetItems(items);
-  };
-
   const addItem = (item: Item, quantity = 1) => {
     if (!item.id) throw new Error('You must provide an `id` for items');
     if (quantity <= 0) return;
@@ -225,40 +200,6 @@ export const CartProvider = ({
     onItemUpdate && onItemUpdate(payload);
   };
 
-  const updateItem = (id: Item['id'], payload: object) => {
-    if (!id || !payload) {
-      return;
-    }
-
-    dispatch({ type: 'UPDATE_ITEM', id, payload });
-
-    onItemUpdate && onItemUpdate(payload);
-  };
-
-  const updateItemQuantity = (id: Item['id'], quantity: number) => {
-    if (quantity <= 0) {
-      onItemRemove && onItemRemove(id);
-
-      dispatch({ type: 'REMOVE_ITEM', id });
-
-      return;
-    }
-
-    const currentItem = state.items.find((item: Item) => item.id === id);
-
-    if (!currentItem) throw new Error('No such item to update');
-
-    const payload = { ...currentItem, quantity };
-
-    dispatch({
-      type: 'UPDATE_ITEM',
-      id,
-      payload,
-    });
-
-    onItemUpdate && onItemUpdate(payload);
-  };
-
   const removeItem = (id: Item['id']) => {
     if (!id) return;
 
@@ -277,28 +218,15 @@ export const CartProvider = ({
 
   const inCart = (id: Item['id']) => state.items.some((i: Item) => i.id === id);
 
-  const updateCartMetadata = (metadata: Metadata) => {
-    if (!metadata) return;
-
-    dispatch({
-      type: 'UPDATE_CART_META',
-      payload: metadata,
-    });
-  };
-
   return (
     <CartContext.Provider
       value={{
         ...state,
         getItem,
         inCart,
-        setItems,
         addItem,
-        updateItem,
-        updateItemQuantity,
         removeItem,
         emptyCart,
-        updateCartMetadata,
       }}
     >
       {children}
